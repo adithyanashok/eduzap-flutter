@@ -2,6 +2,7 @@ import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
 import 'package:eduzap/application/signin/signin_bloc.dart';
 import 'package:eduzap/application/signup/signup_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/di/injectable.dart';
 import 'package:eduzap/firebase_options.dart';
 import 'package:eduzap/presentation/core/colors.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<RatingBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UserBloc>(),
         ),
       ],
       child: MaterialApp(

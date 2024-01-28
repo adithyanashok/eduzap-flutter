@@ -45,13 +45,12 @@ class RatingRepositary extends IRatingFacade {
             .collection('ratings')
             .where('courseId', isEqualTo: courseId)
             .get();
-        // final ratingss = querySnap.docs.map((e) {
-        //   return RatingModel.fromJson(e.data());
-        // }).toList();
 
         for (var doc in querySnap.docs) {
           final ratingData = doc.data();
+
           ratings.add(ratingData['rating']);
+
           final totalRatings = ratings
                   .map((e) => e)
                   .reduce((value, element) => value + element) /

@@ -1,4 +1,5 @@
 import 'package:eduzap/application/signin/signin_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
@@ -33,6 +34,7 @@ class _SignInOptionsState extends State<SignInOptions> {
               showSnackBar(context, failure.error);
             },
             (success) {
+              context.read<UserBloc>().add(const UserEvent.getCurrentUser());
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const MainScreen(),
