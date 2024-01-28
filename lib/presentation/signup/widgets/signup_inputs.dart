@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:eduzap/application/signup/signup_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
+import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
 import 'package:eduzap/presentation/home/home_screen.dart';
+import 'package:eduzap/presentation/main/main_screen.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/text_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignUpInputs extends StatefulWidget {
   const SignUpInputs({super.key});
@@ -23,6 +28,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   bool obscureText = false;
+  XFile? pickedImage;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -42,7 +48,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
 
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
+                      builder: (context) => const MainScreen(),
                     ),
                   );
                 },
@@ -52,6 +58,34 @@ class _SignUpInputsState extends State<SignUpInputs> {
           builder: (context, state) {
             return Column(
               children: [
+                GestureDetector(
+                  onTap: () async {
+                    final image = await ImagePicker()
+                        .pickImage(source: ImageSource.gallery);
+                    if (image != null) {
+                      setState(() {
+                        pickedImage = image;
+                      });
+                    }
+                  },
+                  child: pickedImage == null
+                      ? Image.asset(
+                          'assets/images/add-profile.png',
+                          width: 150,
+                        )
+                      : CircleAvatar(
+                          radius: 50,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.file(
+                              File(pickedImage!.path),
+                              fit: BoxFit.cover,
+                              width: 150,
+                              height: 160,
+                            ),
+                          ),
+                        ),
+                ),
                 CustomTextField(
                   hintText: 'Enter username',
                   controller: usernameController,
@@ -84,6 +118,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                               username: usernameController.text,
                               email: emailController.text,
                               password: passwordController.text,
+                              profile: pickedImage!.path,
                             ),
                             confirmPassword: confirmPasswordController.text,
                           ),

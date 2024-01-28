@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
@@ -6,6 +7,7 @@ import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/signup/i_signup_facade.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ISignupFacade)
@@ -39,6 +41,8 @@ class SignupRepositary extends ISignupFacade {
       );
 
       // Store the user details to new collection
+      final profile = await uploadImage(user.profile);
+      user = user.copyWith(profile: profile);
       await db
           .collection('users')
           .doc(userCredential.user?.uid)
@@ -58,6 +62,18 @@ class SignupRepositary extends ISignupFacade {
       } else {
         return Left(MainFailures.failures(error: e.message!));
       }
+    }
+  }
+
+  // Upload cover image and return the download url
+  Future<String> uploadImage(String image) async {
+    try {
+      final imageRef = FirebaseStorage.instance.ref().child(image);
+      await imageRef.putFile(File(image));
+      final String imageUrl = await imageRef.getDownloadURL();
+      return imageUrl;
+    } catch (e) {
+      return '';
     }
   }
 }

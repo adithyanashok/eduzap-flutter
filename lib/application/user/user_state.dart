@@ -11,7 +11,7 @@ class UserState with _$UserState {
   factory UserState.initial() {
     return const UserState(
       isLoading: false,
-      user: UserModel(username: "", email: "", password: ""),
+      user: UserModel(username: "", email: "", password: "", profile: ''),
       userOpt: None(),
     );
   }

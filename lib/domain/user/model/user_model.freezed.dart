@@ -23,6 +23,7 @@ mixin _$UserModel {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get profile => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String username, String email, String password});
+  $Res call({String username, String email, String password, String profile});
 }
 
 /// @nodoc
@@ -54,6 +55,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? username = null,
     Object? email = null,
     Object? password = null,
+    Object? profile = null,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -68,6 +70,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -80,7 +86,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String username, String email, String password});
+  $Res call({String username, String email, String password, String profile});
 }
 
 /// @nodoc
@@ -97,6 +103,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? password = null,
+    Object? profile = null,
   }) {
     return _then(_$UserModelImpl(
       username: null == username
@@ -111,6 +118,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -119,7 +130,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
-      {required this.username, required this.email, required this.password});
+      {required this.username,
+      required this.email,
+      required this.password,
+      required this.profile});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -130,10 +144,12 @@ class _$UserModelImpl implements _UserModel {
   final String email;
   @override
   final String password;
+  @override
+  final String profile;
 
   @override
   String toString() {
-    return 'UserModel(username: $username, email: $email, password: $password)';
+    return 'UserModel(username: $username, email: $email, password: $password, profile: $profile)';
   }
 
   @override
@@ -145,12 +161,14 @@ class _$UserModelImpl implements _UserModel {
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.profile, profile) || other.profile == profile));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, username, email, password);
+  int get hashCode =>
+      Object.hash(runtimeType, username, email, password, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +188,8 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String username,
       required final String email,
-      required final String password}) = _$UserModelImpl;
+      required final String password,
+      required final String profile}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -181,6 +200,8 @@ abstract class _UserModel implements UserModel {
   String get email;
   @override
   String get password;
+  @override
+  String get profile;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>

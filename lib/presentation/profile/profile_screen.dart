@@ -29,6 +29,7 @@ class ProfileScreen extends StatelessWidget {
                       child: ProfileHeader(
                         email: state.user.email,
                         name: state.user.username,
+                        imgae: state.user.profile,
                       ),
                     ),
                     const SliverPadding(

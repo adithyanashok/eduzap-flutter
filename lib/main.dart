@@ -7,6 +7,8 @@ import 'package:eduzap/domain/di/injectable.dart';
 import 'package:eduzap/firebase_options.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/main/main_screen.dart';
+import 'package:eduzap/presentation/signin/widgets/sign_in_options.dart';
+import 'package:eduzap/presentation/signup/signup_screen.dart';
 import 'package:eduzap/presentation/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

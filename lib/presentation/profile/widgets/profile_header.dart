@@ -11,10 +11,12 @@ import 'package:flutter/material.dart';
 class ProfileHeader extends StatelessWidget {
   final String name;
   final String email;
+  final String imgae;
   const ProfileHeader({
     super.key,
     required this.name,
     required this.email,
+    required this.imgae,
   });
 
   @override
@@ -22,12 +24,16 @@ class ProfileHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(150),
-          child: Image.asset(
-            'assets/images/avatar.jpg',
-            fit: BoxFit.cover,
-            width: 120,
+        CircleAvatar(
+          radius: 50,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child: Image.network(
+              imgae,
+              fit: BoxFit.cover,
+              width: 150,
+              height: 160,
+            ),
           ),
         ),
         CustomText(

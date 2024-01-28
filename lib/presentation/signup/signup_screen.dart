@@ -27,7 +27,7 @@ class SignUpScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 100),
         itemBuilder: (context, index) => _widgets[index],
         separatorBuilder: (context, index) => const SizedBox(
-          height: 80,
+          height: 40,
         ),
         itemCount: _widgets.length,
       ),
