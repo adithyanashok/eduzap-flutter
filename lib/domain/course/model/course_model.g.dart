@@ -18,7 +18,7 @@ _$CourseModelImpl _$$CourseModelImplFromJson(Map<String, dynamic> json) =>
           (json['lessons'] as List<dynamic>).map((e) => e as String).toList(),
       videoUrl: json['videoUrl'] as String,
       imageUrl: json['imageUrl'] as String,
-      id: json['id'] as String?,
+      id: json['id'] as String,
     );
 
 Map<String, dynamic> _$$CourseModelImplToJson(_$CourseModelImpl instance) =>

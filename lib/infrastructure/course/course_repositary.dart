@@ -12,6 +12,7 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ICourseFacade)
 class CourseRepositary extends ICourseFacade {
+  // Upload course
   @override
   Future<Either<MainFailures, CourseModel>> uploadCourse(
       CourseModel course) async {
@@ -69,6 +70,7 @@ class CourseRepositary extends ICourseFacade {
     }
   }
 
+  // Fetch all courses from the firestore
   @override
   Future<Either<MainFailures, List<CourseModel>>> getAllCourse() async {
     try {
@@ -83,6 +85,7 @@ class CourseRepositary extends ICourseFacade {
     }
   }
 
+  // Fetch a single course by id
   @override
   Future<Either<MainFailures, CourseModel>> getCourse(String id) async {
     try {
@@ -95,6 +98,7 @@ class CourseRepositary extends ICourseFacade {
     }
   }
 
+  // Search course by query
   @override
   Future<Either<MainFailures, List<CourseModel>>> searchCourse(
       String query) async {

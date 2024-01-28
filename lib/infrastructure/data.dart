@@ -48,6 +48,7 @@ final List<CourseCard> courses = [
 
 final List<RatingCard> ratings = [
   const RatingCard(
+    rating: 5,
     imageName: "avatar.jpg",
     name: "Rafael",
     review:
@@ -58,20 +59,24 @@ final List<RatingCard> ratings = [
     name: "James",
     review:
         "Lectus vitae lorem lorem luctus mostie vitae mbi curabitur magna facilisis turpis nullam nibh gfas ultricies purus molestie quis impert id agger",
+    rating: 5,
   ),
   const RatingCard(
+    rating: 5,
     imageName: "course2.jpg",
     name: "Sam",
     review:
         "Lectus vitae lorem lorem luctus mostie vitae mbi curabitur magna facilisis turpis nullam nibh gfas ultricies purus molestie quis impert id agger",
   ),
   const RatingCard(
+    rating: 5,
     imageName: "coding.jpg",
     name: "Sam",
     review:
         "Lectus vitae lorem lorem luctus mostie vitae mbi curabitur magna facilisis turpis nullam nibh gfas ultricies purus molestie quis impert id agger",
   ),
   const RatingCard(
+    rating: 5,
     imageName: "course2.jpg",
     name: "Sam",
     review:

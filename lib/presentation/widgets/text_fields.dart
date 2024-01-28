@@ -65,7 +65,10 @@ class CustomFilledFormField extends StatelessWidget {
   final String hintText;
   final int? maxLines;
   final int? maxLength;
+  final TextEditingController? controller;
   final Function(String value) onFieldSubmitted;
+  final Function(String value)? onChanged;
+  final String? errorText;
   const CustomFilledFormField({
     super.key,
     this.suffixIcon,
@@ -73,6 +76,9 @@ class CustomFilledFormField extends StatelessWidget {
     this.maxLines,
     this.maxLength,
     required this.onFieldSubmitted,
+    this.controller,
+    this.onChanged,
+    this.errorText,
   });
 
   @override
@@ -82,6 +88,7 @@ class CustomFilledFormField extends StatelessWidget {
       child: TextFormField(
         maxLines: maxLines,
         maxLength: maxLength,
+        controller: controller,
         decoration: InputDecoration(
           filled: true,
           fillColor: lightPink,
@@ -111,11 +118,15 @@ class CustomFilledFormField extends StatelessWidget {
             ),
           ),
           suffixIcon: suffixIcon,
+          errorText: errorText,
         ),
         keyboardType: TextInputType.multiline,
         textInputAction: TextInputAction.go,
         onFieldSubmitted: (value) {
           onFieldSubmitted(value);
+        },
+        onChanged: (value) {
+          onChanged!(value);
         },
       ),
     );

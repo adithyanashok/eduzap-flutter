@@ -1,4 +1,5 @@
 import 'package:eduzap/application/course/course_bloc.dart';
+import 'package:eduzap/application/rating/rating_bloc.dart';
 import 'package:eduzap/infrastructure/data.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/course/widgets/rating/rating_card.dart';
@@ -29,19 +30,25 @@ class OverViewTabView extends StatelessWidget {
                   );
                 },
               ),
-              const RatingLabel(),
-              Column(
-                children: List.generate(
-                  ratings.length,
-                  (index) {
-                    final rating = ratings[index];
-                    return RatingCard(
-                      imageName: rating.imageName,
-                      name: rating.name,
-                      review: rating.review,
-                    );
-                  },
-                ),
+              RatingLabel(courseId: state.course.id),
+              BlocBuilder<RatingBloc, RatingState>(
+                builder: (context, state) {
+                  return Column(
+                    children: List.generate(
+                      state.ratings.length,
+                      (index) {
+                        final rating = state.ratings[index];
+
+                        return RatingCard(
+                          imageName: rating.profile,
+                          name: rating.name,
+                          review: rating.ratingString,
+                          rating: rating.rating,
+                        );
+                      },
+                    ),
+                  );
+                },
               )
             ],
           );

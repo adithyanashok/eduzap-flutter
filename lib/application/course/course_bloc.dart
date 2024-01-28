@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
@@ -24,6 +22,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
           state.copyWith(
             searchList: [],
             searchListOpt: const None(),
+            coursebyCategoryList: [],
+            coursebyCategoryOpt: const None(),
           ),
         );
       },

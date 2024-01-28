@@ -137,6 +137,7 @@ class UploadCourseState extends State<UploadCourse> {
                             category: "",
                             videoUrl: widget.videoPath!,
                             imageUrl: widget.imagePath!,
+                            id: '',
                           ),
                         ),
                       );

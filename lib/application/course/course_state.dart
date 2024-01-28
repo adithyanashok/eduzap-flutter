@@ -25,6 +25,7 @@ class CourseState with _$CourseState {
       courseOpt: None(),
       courseListOpt: None(),
       course: CourseModel(
+        id: '',
         courseTitle: "",
         courseDescription: "",
         courseOverview: "",

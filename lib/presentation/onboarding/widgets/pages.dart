@@ -1,4 +1,7 @@
+import 'package:eduzap/application/signup/signup_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/signin/signin_screen.dart';
+import 'package:eduzap/presentation/signup/signup_screen.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
@@ -58,10 +61,16 @@ Widget page({
         ),
       ),
       const SizedBox(height: 40),
-      const CustomPrimaryButton(
+      CustomPrimaryButton(
         text: "Register",
         color: primaryBlue,
         textColor: Colors.white,
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SignUpScreen(),
+          ),
+        ),
       ),
       const SizedBox(height: 25),
       CustomPrimaryButton(
@@ -69,6 +78,12 @@ Widget page({
         color: Colors.white,
         textColor: primaryBlue,
         border: Border.all(color: grey100),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SignInScreen(),
+          ),
+        ),
       ),
     ],
   );

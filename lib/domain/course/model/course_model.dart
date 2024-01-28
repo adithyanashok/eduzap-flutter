@@ -14,7 +14,7 @@ class CourseModel with _$CourseModel {
     required List<String> lessons,
     required String videoUrl,
     required String imageUrl,
-    String? id,
+    required String id,
   }) = _CourseModel;
 
   factory CourseModel.fromJson(Map<String, dynamic> json) =>

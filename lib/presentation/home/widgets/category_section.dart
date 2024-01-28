@@ -26,7 +26,7 @@ class CategorySection extends StatelessWidget {
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) =>
-                      const CoursesByCategory(category: 'coding'),
+                      const CoursesByCategory(category: 'Coding'),
                 ),
               ),
             ),
@@ -36,7 +36,7 @@ class CategorySection extends StatelessWidget {
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) =>
-                      const CoursesByCategory(category: 'designing'),
+                      const CoursesByCategory(category: 'Designing'),
                 ),
               ),
             ),

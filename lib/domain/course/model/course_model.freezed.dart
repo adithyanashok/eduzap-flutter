@@ -29,7 +29,7 @@ mixin _$CourseModel {
   List<String> get lessons => throw _privateConstructorUsedError;
   String get videoUrl => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $CourseModelCopyWith<$Res> {
       List<String> lessons,
       String videoUrl,
       String imageUrl,
-      String? id});
+      String id});
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$CourseModelCopyWithImpl<$Res, $Val extends CourseModel>
     Object? lessons = null,
     Object? videoUrl = null,
     Object? imageUrl = null,
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       courseTitle: null == courseTitle
@@ -117,10 +117,10 @@ class _$CourseModelCopyWithImpl<$Res, $Val extends CourseModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -143,7 +143,7 @@ abstract class _$$CourseModelImplCopyWith<$Res>
       List<String> lessons,
       String videoUrl,
       String imageUrl,
-      String? id});
+      String id});
 }
 
 /// @nodoc
@@ -166,7 +166,7 @@ class __$$CourseModelImplCopyWithImpl<$Res>
     Object? lessons = null,
     Object? videoUrl = null,
     Object? imageUrl = null,
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$CourseModelImpl(
       courseTitle: null == courseTitle
@@ -205,10 +205,10 @@ class __$$CourseModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -226,7 +226,7 @@ class _$CourseModelImpl implements _CourseModel {
       required final List<String> lessons,
       required this.videoUrl,
       required this.imageUrl,
-      this.id})
+      required this.id})
       : _lessons = lessons;
 
   factory _$CourseModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -257,7 +257,7 @@ class _$CourseModelImpl implements _CourseModel {
   @override
   final String imageUrl;
   @override
-  final String? id;
+  final String id;
 
   @override
   String toString() {
@@ -328,7 +328,7 @@ abstract class _CourseModel implements CourseModel {
       required final List<String> lessons,
       required final String videoUrl,
       required final String imageUrl,
-      final String? id}) = _$CourseModelImpl;
+      required final String id}) = _$CourseModelImpl;
 
   factory _CourseModel.fromJson(Map<String, dynamic> json) =
       _$CourseModelImpl.fromJson;
@@ -352,7 +352,7 @@ abstract class _CourseModel implements CourseModel {
   @override
   String get imageUrl;
   @override
-  String? get id;
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$$CourseModelImplCopyWith<_$CourseModelImpl> get copyWith =>
