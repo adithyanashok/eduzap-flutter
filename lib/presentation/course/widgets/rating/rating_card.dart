@@ -1,5 +1,6 @@
 import 'package:animated_rating_stars/animated_rating_stars.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/rating/model/rating_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
@@ -29,12 +30,16 @@ class RatingCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Image.asset(
-              'assets/images/$imageName',
-              fit: BoxFit.cover,
-              width: 50,
+          CircleAvatar(
+            radius: 20,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.network(
+                imageName,
+                fit: BoxFit.cover,
+                width: 150,
+                height: 160,
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -190,22 +195,26 @@ class RatingLabel extends StatelessWidget {
                   controller: textEditingController,
                   errorText: state.errorText,
                 ),
-                CustomPrimaryButton(
-                  text: "Submit",
-                  color: primaryBlue,
-                  textColor: Colors.white,
-                  onTap: () {
-                    context.read<RatingBloc>().add(
-                          RatingEvent.addRating(
-                            RatingModel(
-                              profile: "profile",
-                              name: "Adi",
-                              rating: rating,
-                              ratingString: textEditingController.text,
-                              courseId: courseId,
-                            ),
-                          ),
-                        );
+                BlocBuilder<UserBloc, UserState>(
+                  builder: (context, state) {
+                    return CustomPrimaryButton(
+                      text: "Submit",
+                      color: primaryBlue,
+                      textColor: Colors.white,
+                      onTap: () {
+                        context.read<RatingBloc>().add(
+                              RatingEvent.addRating(
+                                RatingModel(
+                                  profile: state.user.profile,
+                                  name: state.user.username,
+                                  rating: rating,
+                                  ratingString: textEditingController.text,
+                                  courseId: courseId,
+                                ),
+                              ),
+                            );
+                      },
+                    );
                   },
                 )
               ],

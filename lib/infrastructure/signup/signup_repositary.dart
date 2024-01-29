@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/signup/i_signup_facade.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
+import 'package:eduzap/infrastructure/core/collections.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
@@ -44,7 +45,7 @@ class SignupRepositary extends ISignupFacade {
       final profile = await uploadImage(user.profile);
       user = user.copyWith(profile: profile);
       await db
-          .collection('users')
+          .collection(Collection.users)
           .doc(userCredential.user?.uid)
           .set(user.toJson());
 

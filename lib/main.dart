@@ -1,5 +1,6 @@
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
+import 'package:eduzap/application/saved/saved_bloc.dart';
 import 'package:eduzap/application/signin/signin_bloc.dart';
 import 'package:eduzap/application/signup/signup_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
@@ -46,6 +47,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<UserBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SavedBloc>(),
         ),
       ],
       child: MaterialApp(

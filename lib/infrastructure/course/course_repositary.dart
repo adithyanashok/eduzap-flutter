@@ -7,6 +7,7 @@ import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/course/i_course_facade.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/course/util/media.dart';
+import 'package:eduzap/infrastructure/core/collections.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
@@ -32,8 +33,12 @@ class CourseRepositary extends ICourseFacade {
           imageUrl: await uploadImage(course.imageUrl),
           videoUrl: await uploadVideo(course.videoUrl),
         );
-        final docRef = await db.collection('courses').add(course.toJson());
-        await db.collection('courses').doc(docRef.id).update({"id": docRef.id});
+        final docRef =
+            await db.collection(Collection.courses).add(course.toJson());
+        await db
+            .collection(Collection.courses)
+            .doc(docRef.id)
+            .update({"id": docRef.id});
         final docSnap = await docRef.get();
         final data = docSnap.data();
         final coursemodel = CourseModel.fromJson(data!);
@@ -75,7 +80,7 @@ class CourseRepositary extends ICourseFacade {
   Future<Either<MainFailures, List<CourseModel>>> getAllCourse() async {
     try {
       final db = FirebaseFirestore.instance;
-      final querySnap = await db.collection('courses').get();
+      final querySnap = await db.collection(Collection.courses).get();
       final courseList = querySnap.docs.map((e) {
         return CourseModel.fromJson(e.data());
       }).toList();
@@ -90,7 +95,7 @@ class CourseRepositary extends ICourseFacade {
   Future<Either<MainFailures, CourseModel>> getCourse(String id) async {
     try {
       final db = FirebaseFirestore.instance;
-      final docSnap = await db.collection('courses').doc(id).get();
+      final docSnap = await db.collection(Collection.courses).doc(id).get();
       final course = CourseModel.fromJson(docSnap.data()!);
       return Right(course);
     } catch (e) {
@@ -108,7 +113,7 @@ class CourseRepositary extends ICourseFacade {
         return const Left(MainFailures.failures(error: "Type something"));
       } else {
         final querySnap = await db
-            .collection('courses')
+            .collection(Collection.courses)
             .where('category', isGreaterThanOrEqualTo: query)
             .get();
         final courseList = querySnap.docs.map((e) {

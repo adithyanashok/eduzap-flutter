@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';

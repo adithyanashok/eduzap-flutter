@@ -18,11 +18,14 @@ class CoursesByCategory extends StatelessWidget {
         .read<CourseBloc>()
         .add(CourseEvent.coursesByCategory(category.toLowerCase()));
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: CourseAppBar(
-          title: category,
+      appBar: AppBar(
+        title: CustomText(
+          text: category,
+          fontSize: 20,
+          color: grey900,
+          fontWeight: FontWeight.bold,
         ),
+        centerTitle: true,
       ),
       body: BlocBuilder<CourseBloc, CourseState>(
         builder: (context, state) {
@@ -61,7 +64,7 @@ class CoursesByCategory extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => CourseScreen(
-                            id: course.id!,
+                            id: course.id,
                             videoUrl: course.videoUrl,
                           ),
                         ),

@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/user/i_user_facade.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
+import 'package:eduzap/infrastructure/core/collections.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
@@ -13,7 +14,7 @@ class UserRepositary extends IUserFacade {
     try {
       String userId = FirebaseAuth.instance.currentUser!.uid;
       final db = FirebaseFirestore.instance;
-      final docRef = await db.collection("users").doc(userId).get();
+      final docRef = await db.collection(Collection.users).doc(userId).get();
       final user = UserModel.fromJson(docRef.data()!);
       return Right(user);
     } catch (e) {

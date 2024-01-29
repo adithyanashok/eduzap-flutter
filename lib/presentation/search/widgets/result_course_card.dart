@@ -1,4 +1,5 @@
 import 'package:eduzap/domain/course/model/course_model.dart';
+import 'package:eduzap/domain/saved/model/saved_course_model.dart';
 import 'package:eduzap/presentation/home/widgets/course_card.dart';
 import 'package:eduzap/presentation/search/widgets/course_details.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class HorizCourseCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
-                    course.imageUrl,
+                    course.course['imageUrl'],
                     fit: BoxFit.cover,
                     width: 90,
                     height: 120,
@@ -33,9 +34,9 @@ class HorizCourseCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 CourseDetails(
-                  courseName: course.courseTitle,
-                  author: course.tutorName,
-                  rating: course.rating,
+                  courseName: course.course['courseTitle'],
+                  author: course.course['tutorName'],
+                  rating: course.course['rating'],
                 )
               ],
             ),

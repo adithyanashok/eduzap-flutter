@@ -1,5 +1,6 @@
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
+import 'package:eduzap/application/saved/saved_bloc.dart';
 import 'package:eduzap/presentation/course/widgets/app_bar.dart';
 import 'package:eduzap/presentation/course/widgets/course_details.dart';
 import 'package:eduzap/presentation/course/widgets/tab_widget.dart';
@@ -36,6 +37,7 @@ class _CourseScreenState extends State<CourseScreen> {
   @override
   Widget build(BuildContext context) {
     context.read<CourseBloc>().add(CourseEvent.getCourse(widget.id));
+    context.read<SavedBloc>().add(SavedEvent.getSaved(widget.id));
     context.read<RatingBloc>().add(const RatingEvent.clear());
     context.read<RatingBloc>().add(RatingEvent.getRatingByCourse(widget.id));
     return DefaultTabController(
@@ -43,9 +45,9 @@ class _CourseScreenState extends State<CourseScreen> {
       child: BlocBuilder<CourseBloc, CourseState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: const PreferredSize(
-              preferredSize: Size.fromHeight(50),
-              child: CourseAppBar(title: "Details"),
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(50),
+              child: CourseAppBar(title: "Details", course: state.course),
             ),
             body: state.isLoading
                 ? const Center(
