@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:eduzap/presentation/admin_course/screens/upload_course.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';

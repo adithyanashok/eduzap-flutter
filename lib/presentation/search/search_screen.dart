@@ -1,5 +1,6 @@
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/course/course_screen.dart';
 import 'package:eduzap/presentation/search/widgets/result_course_card.dart';
 import 'package:eduzap/presentation/search/widgets/screen_idle.dart';
 import 'package:eduzap/presentation/widgets/text_fields.dart';
@@ -50,9 +51,27 @@ class SearchScreen extends StatelessWidget {
                         : const Center(
                             child: CircularProgressIndicator(),
                           ),
-                    (success) => HorizCourseCard(
-                      courses: state.searchList,
-                    ),
+                    (success) {
+                      return Column(
+                        children: List.generate(
+                          state.searchList.length,
+                          (index) {
+                            final course = state.searchList[index];
+                            return HorizCourseCard(
+                              course: course,
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => CourseScreen(
+                                    id: course.id,
+                                    videoUrl: course.videoUrl,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
                   );
                 },
               )

@@ -1,5 +1,4 @@
 import 'package:eduzap/presentation/core/colors.dart';
-import 'package:eduzap/presentation/search/search_screen.dart';
 import 'package:eduzap/presentation/search/widgets/rating_widget.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';

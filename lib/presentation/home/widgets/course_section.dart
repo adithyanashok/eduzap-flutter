@@ -37,7 +37,7 @@ class CourseSection extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => CourseScreen(
                       videoUrl: course.videoUrl,
-                      id: course.id!,
+                      id: course.id,
                     ),
                   ),
                 );

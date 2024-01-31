@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
-import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/saved/i_saved_facade.dart';
 import 'package:eduzap/domain/saved/model/saved_course_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';

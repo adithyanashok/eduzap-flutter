@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:eduzap/application/saved/saved_bloc.dart';
-import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/saved/model/saved_course_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
@@ -11,17 +8,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CourseAppBar extends StatelessWidget {
+  final String id;
   final String title;
   final CourseModel course;
   CourseAppBar({
     super.key,
     required this.title,
     required this.course,
+    required this.id,
   });
   final userId = FirebaseAuth.instance.currentUser?.uid;
 
   @override
   Widget build(BuildContext context) {
+    context.read<SavedBloc>().add(SavedEvent.getSaved(id));
+
     return AppBar(
       title: CustomText(
         text: title,
@@ -40,18 +41,7 @@ class CourseAppBar extends StatelessWidget {
                       context.read<SavedBloc>().add(
                             SavedEvent.saveCourse(
                               SavedCourseModel(
-                                course: CourseModel(
-                                  courseTitle: course.courseTitle,
-                                  courseDescription: course.courseDescription,
-                                  courseOverview: course.courseOverview,
-                                  tutorName: course.tutorName,
-                                  rating: course.rating,
-                                  category: course.category,
-                                  lessons: course.lessons,
-                                  videoUrl: course.videoUrl,
-                                  imageUrl: course.imageUrl,
-                                  id: course.id,
-                                ).toJson(),
+                                course: course.toJson(),
                                 userId: userId!,
                                 id: '',
                                 courseId: course.id,

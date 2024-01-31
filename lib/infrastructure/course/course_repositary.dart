@@ -8,6 +8,7 @@ import 'package:eduzap/domain/course/i_course_facade.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/course/util/media.dart';
 import 'package:eduzap/infrastructure/core/collections.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 

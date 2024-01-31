@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
@@ -13,6 +12,9 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<UserBloc>().add(const UserEvent.getCurrentUser());
+    });
     return Padding(
       padding: const EdgeInsets.only(top: 30.0),
       child: BlocBuilder<UserBloc, UserState>(
@@ -42,11 +44,19 @@ class Header extends StatelessWidget {
                 radius: 30,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
-                  child: Image.network(
-                    state.user.profile,
+                  child: CachedNetworkImage(
+                    imageUrl: state.user.profile,
                     fit: BoxFit.cover,
                     width: 150,
                     height: 160,
+                    progressIndicatorBuilder: (context, url, progress) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Image.asset(
+                      'assets/images/avatar1.png',
+                      fit: BoxFit.cover,
+                      width: 150,
+                      height: 160,
+                    ),
                   ),
                 ),
               ),

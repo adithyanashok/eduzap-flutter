@@ -2,7 +2,6 @@ import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/sign_in_buttons.dart';
 import 'widgets/sign_in_options.dart';
 
 class SignInScreen extends StatefulWidget {

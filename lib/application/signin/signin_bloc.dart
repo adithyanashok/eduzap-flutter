@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/signin/i_signin_facade.dart';
-import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

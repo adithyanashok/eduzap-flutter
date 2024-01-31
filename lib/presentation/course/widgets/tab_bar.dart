@@ -1,6 +1,5 @@
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
-import 'package:eduzap/infrastructure/data.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/course/widgets/rating/rating_card.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';

@@ -2,7 +2,6 @@ import 'package:eduzap/infrastructure/data.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/home/widgets/course_card.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class AdminHome extends StatelessWidget {

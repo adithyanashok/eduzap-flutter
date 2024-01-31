@@ -1,6 +1,7 @@
 import 'package:eduzap/application/saved/saved_bloc.dart';
-import 'package:eduzap/infrastructure/data.dart';
+import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/course/course_screen.dart';
 import 'package:eduzap/presentation/search/widgets/result_course_card.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,25 @@ class SavedScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  HorizCourseCard(courses: state.savedCourseList),
+                  Column(
+                    children: List.generate(
+                      state.savedCourseList.length,
+                      (index) {
+                        final course = state.savedCourseList[index];
+                        return HorizCourseCard(
+                          course: CourseModel.fromJson(course.course),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => CourseScreen(
+                                id: course.courseId,
+                                videoUrl: course.course['videoUrl'],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             );

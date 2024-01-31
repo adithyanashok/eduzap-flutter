@@ -1,4 +1,3 @@
-import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'saved_course_model.freezed.dart';
 part 'saved_course_model.g.dart';

@@ -4,7 +4,6 @@ import 'package:eduzap/presentation/profile/profile_screen.dart';
 import 'package:eduzap/presentation/saved/saved_screen.dart';
 import 'package:eduzap/presentation/search/search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,8 +25,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<UserBloc>().add(const UserEvent.getCurrentUser());
-
     return Scaffold(
       body: _screens[index],
       bottomNavigationBar: BottomNavigationBar(

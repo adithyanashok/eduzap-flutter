@@ -1,4 +1,3 @@
-import 'package:eduzap/application/signup/signup_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/signin/signin_screen.dart';
 import 'package:eduzap/presentation/signup/signup_screen.dart';

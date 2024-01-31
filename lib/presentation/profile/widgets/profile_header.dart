@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
-import 'package:eduzap/presentation/profile/profile_screen.dart';
 import 'package:eduzap/presentation/signin/signin_screen.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';

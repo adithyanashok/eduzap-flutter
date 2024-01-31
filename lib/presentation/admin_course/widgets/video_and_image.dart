@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:eduzap/domain/course/util/media.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 

@@ -1,7 +1,6 @@
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/course/course_screen.dart';
-import 'package:eduzap/presentation/course/widgets/app_bar.dart';
 import 'package:eduzap/presentation/home/widgets/course_card.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';

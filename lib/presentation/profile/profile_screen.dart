@@ -11,7 +11,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<UserBloc>().add(const UserEvent.getCurrentUser());
+    // context.read<UserBloc>().add(const UserEvent.getCurrentUser());
     return Scaffold(
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {

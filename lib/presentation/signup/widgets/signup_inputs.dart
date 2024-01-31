@@ -2,11 +2,9 @@ import 'dart:io';
 
 import 'package:eduzap/application/signup/signup_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
-import 'package:eduzap/domain/core/failures.dart';
 import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
-import 'package:eduzap/presentation/home/home_screen.dart';
 import 'package:eduzap/presentation/main/main_screen.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/text_fields.dart';
