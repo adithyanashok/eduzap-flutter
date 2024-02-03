@@ -23,6 +23,8 @@ mixin _$CourseEvent {
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +35,8 @@ mixin _$CourseEvent {
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +47,8 @@ mixin _$CourseEvent {
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) =>
@@ -54,6 +60,9 @@ mixin _$CourseEvent {
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +73,8 @@ mixin _$CourseEvent {
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +85,8 @@ mixin _$CourseEvent {
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) =>
@@ -185,6 +198,8 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return uploadCourse(course);
@@ -198,6 +213,8 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return uploadCourse?.call(course);
@@ -211,6 +228,8 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -228,6 +247,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return uploadCourse(this);
@@ -241,6 +263,8 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return uploadCourse?.call(this);
@@ -254,6 +278,8 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -325,6 +351,8 @@ class _$GetAllCoursesImpl
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return getAllCourses();
@@ -338,6 +366,8 @@ class _$GetAllCoursesImpl
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return getAllCourses?.call();
@@ -351,6 +381,8 @@ class _$GetAllCoursesImpl
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -368,6 +400,9 @@ class _$GetAllCoursesImpl
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return getAllCourses(this);
@@ -381,6 +416,8 @@ class _$GetAllCoursesImpl
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return getAllCourses?.call(this);
@@ -394,6 +431,8 @@ class _$GetAllCoursesImpl
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -485,6 +524,8 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return getCourse(id);
@@ -498,6 +539,8 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return getCourse?.call(id);
@@ -511,6 +554,8 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -528,6 +573,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return getCourse(this);
@@ -541,6 +589,8 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return getCourse?.call(this);
@@ -554,6 +604,8 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -650,6 +702,8 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return searchCourse(query);
@@ -663,6 +717,8 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return searchCourse?.call(query);
@@ -676,6 +732,8 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -693,6 +751,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return searchCourse(this);
@@ -706,6 +767,8 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return searchCourse?.call(this);
@@ -719,6 +782,8 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -819,6 +884,8 @@ class _$CoursesByCategoryImpl
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return coursesByCategory(category);
@@ -832,6 +899,8 @@ class _$CoursesByCategoryImpl
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return coursesByCategory?.call(category);
@@ -845,6 +914,8 @@ class _$CoursesByCategoryImpl
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -862,6 +933,9 @@ class _$CoursesByCategoryImpl
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return coursesByCategory(this);
@@ -875,6 +949,8 @@ class _$CoursesByCategoryImpl
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return coursesByCategory?.call(this);
@@ -888,6 +964,8 @@ class _$CoursesByCategoryImpl
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -906,6 +984,305 @@ abstract class _CoursesByCategory implements CourseEvent {
   @JsonKey(ignore: true)
   _$$CoursesByCategoryImplCopyWith<_$CoursesByCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetDesigningCoursesImplCopyWith<$Res> {
+  factory _$$GetDesigningCoursesImplCopyWith(_$GetDesigningCoursesImpl value,
+          $Res Function(_$GetDesigningCoursesImpl) then) =
+      __$$GetDesigningCoursesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetDesigningCoursesImplCopyWithImpl<$Res>
+    extends _$CourseEventCopyWithImpl<$Res, _$GetDesigningCoursesImpl>
+    implements _$$GetDesigningCoursesImplCopyWith<$Res> {
+  __$$GetDesigningCoursesImplCopyWithImpl(_$GetDesigningCoursesImpl _value,
+      $Res Function(_$GetDesigningCoursesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetDesigningCoursesImpl
+    with DiagnosticableTreeMixin
+    implements _GetDesigningCourses {
+  const _$GetDesigningCoursesImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseEvent.getDesigningCourses()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CourseEvent.getDesigningCourses'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetDesigningCoursesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CourseModel course) uploadCourse,
+    required TResult Function() getAllCourses,
+    required TResult Function(String id) getCourse,
+    required TResult Function(String query) searchCourse,
+    required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
+    required TResult Function() clear,
+  }) {
+    return getDesigningCourses();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CourseModel course)? uploadCourse,
+    TResult? Function()? getAllCourses,
+    TResult? Function(String id)? getCourse,
+    TResult? Function(String query)? searchCourse,
+    TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
+    TResult? Function()? clear,
+  }) {
+    return getDesigningCourses?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CourseModel course)? uploadCourse,
+    TResult Function()? getAllCourses,
+    TResult Function(String id)? getCourse,
+    TResult Function(String query)? searchCourse,
+    TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
+    TResult Function()? clear,
+    required TResult orElse(),
+  }) {
+    if (getDesigningCourses != null) {
+      return getDesigningCourses();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UploadCourse value) uploadCourse,
+    required TResult Function(_GetAllCourses value) getAllCourses,
+    required TResult Function(_GetCourse value) getCourse,
+    required TResult Function(_SearchCourse value) searchCourse,
+    required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
+    required TResult Function(_Clear value) clear,
+  }) {
+    return getDesigningCourses(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UploadCourse value)? uploadCourse,
+    TResult? Function(_GetAllCourses value)? getAllCourses,
+    TResult? Function(_GetCourse value)? getCourse,
+    TResult? Function(_SearchCourse value)? searchCourse,
+    TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult? Function(_Clear value)? clear,
+  }) {
+    return getDesigningCourses?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UploadCourse value)? uploadCourse,
+    TResult Function(_GetAllCourses value)? getAllCourses,
+    TResult Function(_GetCourse value)? getCourse,
+    TResult Function(_SearchCourse value)? searchCourse,
+    TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult Function(_Clear value)? clear,
+    required TResult orElse(),
+  }) {
+    if (getDesigningCourses != null) {
+      return getDesigningCourses(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetDesigningCourses implements CourseEvent {
+  const factory _GetDesigningCourses() = _$GetDesigningCoursesImpl;
+}
+
+/// @nodoc
+abstract class _$$GetPhotographyCoursesImplCopyWith<$Res> {
+  factory _$$GetPhotographyCoursesImplCopyWith(
+          _$GetPhotographyCoursesImpl value,
+          $Res Function(_$GetPhotographyCoursesImpl) then) =
+      __$$GetPhotographyCoursesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetPhotographyCoursesImplCopyWithImpl<$Res>
+    extends _$CourseEventCopyWithImpl<$Res, _$GetPhotographyCoursesImpl>
+    implements _$$GetPhotographyCoursesImplCopyWith<$Res> {
+  __$$GetPhotographyCoursesImplCopyWithImpl(_$GetPhotographyCoursesImpl _value,
+      $Res Function(_$GetPhotographyCoursesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetPhotographyCoursesImpl
+    with DiagnosticableTreeMixin
+    implements _GetPhotographyCourses {
+  const _$GetPhotographyCoursesImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseEvent.getPhotographyCourses()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CourseEvent.getPhotographyCourses'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetPhotographyCoursesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CourseModel course) uploadCourse,
+    required TResult Function() getAllCourses,
+    required TResult Function(String id) getCourse,
+    required TResult Function(String query) searchCourse,
+    required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
+    required TResult Function() clear,
+  }) {
+    return getPhotographyCourses();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CourseModel course)? uploadCourse,
+    TResult? Function()? getAllCourses,
+    TResult? Function(String id)? getCourse,
+    TResult? Function(String query)? searchCourse,
+    TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
+    TResult? Function()? clear,
+  }) {
+    return getPhotographyCourses?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CourseModel course)? uploadCourse,
+    TResult Function()? getAllCourses,
+    TResult Function(String id)? getCourse,
+    TResult Function(String query)? searchCourse,
+    TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
+    TResult Function()? clear,
+    required TResult orElse(),
+  }) {
+    if (getPhotographyCourses != null) {
+      return getPhotographyCourses();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UploadCourse value) uploadCourse,
+    required TResult Function(_GetAllCourses value) getAllCourses,
+    required TResult Function(_GetCourse value) getCourse,
+    required TResult Function(_SearchCourse value) searchCourse,
+    required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
+    required TResult Function(_Clear value) clear,
+  }) {
+    return getPhotographyCourses(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UploadCourse value)? uploadCourse,
+    TResult? Function(_GetAllCourses value)? getAllCourses,
+    TResult? Function(_GetCourse value)? getCourse,
+    TResult? Function(_SearchCourse value)? searchCourse,
+    TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult? Function(_Clear value)? clear,
+  }) {
+    return getPhotographyCourses?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UploadCourse value)? uploadCourse,
+    TResult Function(_GetAllCourses value)? getAllCourses,
+    TResult Function(_GetCourse value)? getCourse,
+    TResult Function(_SearchCourse value)? searchCourse,
+    TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult Function(_Clear value)? clear,
+    required TResult orElse(),
+  }) {
+    if (getPhotographyCourses != null) {
+      return getPhotographyCourses(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetPhotographyCourses implements CourseEvent {
+  const factory _GetPhotographyCourses() = _$GetPhotographyCoursesImpl;
 }
 
 /// @nodoc
@@ -957,6 +1334,8 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     required TResult Function(String id) getCourse,
     required TResult Function(String query) searchCourse,
     required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
   }) {
     return clear();
@@ -970,6 +1349,8 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult? Function(String id)? getCourse,
     TResult? Function(String query)? searchCourse,
     TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
   }) {
     return clear?.call();
@@ -983,6 +1364,8 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult Function(String id)? getCourse,
     TResult Function(String query)? searchCourse,
     TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -1000,6 +1383,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     required TResult Function(_GetCourse value) getCourse,
     required TResult Function(_SearchCourse value) searchCourse,
     required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
     required TResult Function(_Clear value) clear,
   }) {
     return clear(this);
@@ -1013,6 +1399,8 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult? Function(_GetCourse value)? getCourse,
     TResult? Function(_SearchCourse value)? searchCourse,
     TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
   }) {
     return clear?.call(this);
@@ -1026,6 +1414,8 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult Function(_GetCourse value)? getCourse,
     TResult Function(_SearchCourse value)? searchCourse,
     TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -1046,6 +1436,9 @@ mixin _$CourseState {
   List<CourseModel> get courses => throw _privateConstructorUsedError;
   List<CourseModel> get searchList => throw _privateConstructorUsedError;
   List<CourseModel> get coursebyCategoryList =>
+      throw _privateConstructorUsedError;
+  List<CourseModel> get designCourses => throw _privateConstructorUsedError;
+  List<CourseModel> get photographyCourses =>
       throw _privateConstructorUsedError;
   CourseModel get course => throw _privateConstructorUsedError;
   Option<Either<MainFailures, CourseModel>> get courseOpt =>
@@ -1074,6 +1467,8 @@ abstract class $CourseStateCopyWith<$Res> {
       List<CourseModel> courses,
       List<CourseModel> searchList,
       List<CourseModel> coursebyCategoryList,
+      List<CourseModel> designCourses,
+      List<CourseModel> photographyCourses,
       CourseModel course,
       Option<Either<MainFailures, CourseModel>> courseOpt,
       Option<Either<MainFailures, List<CourseModel>>> courseListOpt,
@@ -1101,6 +1496,8 @@ class _$CourseStateCopyWithImpl<$Res, $Val extends CourseState>
     Object? courses = null,
     Object? searchList = null,
     Object? coursebyCategoryList = null,
+    Object? designCourses = null,
+    Object? photographyCourses = null,
     Object? course = null,
     Object? courseOpt = null,
     Object? courseListOpt = null,
@@ -1124,6 +1521,14 @@ class _$CourseStateCopyWithImpl<$Res, $Val extends CourseState>
       coursebyCategoryList: null == coursebyCategoryList
           ? _value.coursebyCategoryList
           : coursebyCategoryList // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      designCourses: null == designCourses
+          ? _value.designCourses
+          : designCourses // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      photographyCourses: null == photographyCourses
+          ? _value.photographyCourses
+          : photographyCourses // ignore: cast_nullable_to_non_nullable
               as List<CourseModel>,
       course: null == course
           ? _value.course
@@ -1174,6 +1579,8 @@ abstract class _$$CourseStateImplCopyWith<$Res>
       List<CourseModel> courses,
       List<CourseModel> searchList,
       List<CourseModel> coursebyCategoryList,
+      List<CourseModel> designCourses,
+      List<CourseModel> photographyCourses,
       CourseModel course,
       Option<Either<MainFailures, CourseModel>> courseOpt,
       Option<Either<MainFailures, List<CourseModel>>> courseListOpt,
@@ -1200,6 +1607,8 @@ class __$$CourseStateImplCopyWithImpl<$Res>
     Object? courses = null,
     Object? searchList = null,
     Object? coursebyCategoryList = null,
+    Object? designCourses = null,
+    Object? photographyCourses = null,
     Object? course = null,
     Object? courseOpt = null,
     Object? courseListOpt = null,
@@ -1223,6 +1632,14 @@ class __$$CourseStateImplCopyWithImpl<$Res>
       coursebyCategoryList: null == coursebyCategoryList
           ? _value._coursebyCategoryList
           : coursebyCategoryList // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      designCourses: null == designCourses
+          ? _value._designCourses
+          : designCourses // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      photographyCourses: null == photographyCourses
+          ? _value._photographyCourses
+          : photographyCourses // ignore: cast_nullable_to_non_nullable
               as List<CourseModel>,
       course: null == course
           ? _value.course
@@ -1260,6 +1677,8 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       required final List<CourseModel> courses,
       required final List<CourseModel> searchList,
       required final List<CourseModel> coursebyCategoryList,
+      required final List<CourseModel> designCourses,
+      required final List<CourseModel> photographyCourses,
       required this.course,
       required this.courseOpt,
       required this.courseListOpt,
@@ -1268,7 +1687,9 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       this.error})
       : _courses = courses,
         _searchList = searchList,
-        _coursebyCategoryList = coursebyCategoryList;
+        _coursebyCategoryList = coursebyCategoryList,
+        _designCourses = designCourses,
+        _photographyCourses = photographyCourses;
 
   @override
   final bool isLoading;
@@ -1297,6 +1718,23 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
     return EqualUnmodifiableListView(_coursebyCategoryList);
   }
 
+  final List<CourseModel> _designCourses;
+  @override
+  List<CourseModel> get designCourses {
+    if (_designCourses is EqualUnmodifiableListView) return _designCourses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_designCourses);
+  }
+
+  final List<CourseModel> _photographyCourses;
+  @override
+  List<CourseModel> get photographyCourses {
+    if (_photographyCourses is EqualUnmodifiableListView)
+      return _photographyCourses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_photographyCourses);
+  }
+
   @override
   final CourseModel course;
   @override
@@ -1312,7 +1750,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CourseState(isLoading: $isLoading, courses: $courses, searchList: $searchList, coursebyCategoryList: $coursebyCategoryList, course: $course, courseOpt: $courseOpt, courseListOpt: $courseListOpt, coursebyCategoryOpt: $coursebyCategoryOpt, searchListOpt: $searchListOpt, error: $error)';
+    return 'CourseState(isLoading: $isLoading, courses: $courses, searchList: $searchList, coursebyCategoryList: $coursebyCategoryList, designCourses: $designCourses, photographyCourses: $photographyCourses, course: $course, courseOpt: $courseOpt, courseListOpt: $courseListOpt, coursebyCategoryOpt: $coursebyCategoryOpt, searchListOpt: $searchListOpt, error: $error)';
   }
 
   @override
@@ -1324,6 +1762,8 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       ..add(DiagnosticsProperty('courses', courses))
       ..add(DiagnosticsProperty('searchList', searchList))
       ..add(DiagnosticsProperty('coursebyCategoryList', coursebyCategoryList))
+      ..add(DiagnosticsProperty('designCourses', designCourses))
+      ..add(DiagnosticsProperty('photographyCourses', photographyCourses))
       ..add(DiagnosticsProperty('course', course))
       ..add(DiagnosticsProperty('courseOpt', courseOpt))
       ..add(DiagnosticsProperty('courseListOpt', courseListOpt))
@@ -1344,6 +1784,10 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
                 .equals(other._searchList, _searchList) &&
             const DeepCollectionEquality()
                 .equals(other._coursebyCategoryList, _coursebyCategoryList) &&
+            const DeepCollectionEquality()
+                .equals(other._designCourses, _designCourses) &&
+            const DeepCollectionEquality()
+                .equals(other._photographyCourses, _photographyCourses) &&
             (identical(other.course, course) || other.course == course) &&
             (identical(other.courseOpt, courseOpt) ||
                 other.courseOpt == courseOpt) &&
@@ -1363,6 +1807,8 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       const DeepCollectionEquality().hash(_courses),
       const DeepCollectionEquality().hash(_searchList),
       const DeepCollectionEquality().hash(_coursebyCategoryList),
+      const DeepCollectionEquality().hash(_designCourses),
+      const DeepCollectionEquality().hash(_photographyCourses),
       course,
       courseOpt,
       courseListOpt,
@@ -1383,6 +1829,8 @@ abstract class _CourseState implements CourseState {
       required final List<CourseModel> courses,
       required final List<CourseModel> searchList,
       required final List<CourseModel> coursebyCategoryList,
+      required final List<CourseModel> designCourses,
+      required final List<CourseModel> photographyCourses,
       required final CourseModel course,
       required final Option<Either<MainFailures, CourseModel>> courseOpt,
       required final Option<Either<MainFailures, List<CourseModel>>>
@@ -1401,6 +1849,10 @@ abstract class _CourseState implements CourseState {
   List<CourseModel> get searchList;
   @override
   List<CourseModel> get coursebyCategoryList;
+  @override
+  List<CourseModel> get designCourses;
+  @override
+  List<CourseModel> get photographyCourses;
   @override
   CourseModel get course;
   @override

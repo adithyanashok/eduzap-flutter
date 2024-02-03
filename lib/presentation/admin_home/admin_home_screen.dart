@@ -1,4 +1,5 @@
 import 'package:eduzap/infrastructure/data.dart';
+import 'package:eduzap/presentation/admin_course/screens/admin_courses_screen.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/home/widgets/course_card.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
@@ -141,22 +142,31 @@ class Statistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Card(figure: '100', text: "Students"),
             Card(figure: "1.5K", text: "Earnings"),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Card(figure: '150', text: "Courses"),
-            Card(figure: 'View', text: "Courses"),
+            const Card(figure: '150', text: "Courses"),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AdminCourseScreen(),
+                  ),
+                );
+              },
+              child: const Card(figure: 'View', text: "Courses"),
+            ),
           ],
         ),
       ],

@@ -7,6 +7,8 @@ class CourseState with _$CourseState {
     required List<CourseModel> courses,
     required List<CourseModel> searchList,
     required List<CourseModel> coursebyCategoryList,
+    required List<CourseModel> designCourses,
+    required List<CourseModel> photographyCourses,
     required CourseModel course,
     required Option<Either<MainFailures, CourseModel>> courseOpt,
     required Option<Either<MainFailures, List<CourseModel>>> courseListOpt,
@@ -38,6 +40,8 @@ class CourseState with _$CourseState {
       ),
       coursebyCategoryList: [],
       coursebyCategoryOpt: None(),
+      designCourses: [],
+      photographyCourses: [],
     );
   }
 }

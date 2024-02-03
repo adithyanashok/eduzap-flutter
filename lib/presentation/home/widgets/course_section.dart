@@ -25,25 +25,28 @@ class CourseSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: List.generate(courses.length, (index) {
-            final course = courses[index];
-            return CourseCard(
-              courseName: course.courseTitle,
-              courseImg: course.imageUrl,
-              rating: course.rating,
-              tutorName: course.tutorName,
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => CourseScreen(
-                      videoUrl: course.videoUrl,
-                      id: course.id,
+          children: List.generate(
+            courses.length >= 2 ? 2 : courses.length,
+            (index) {
+              final course = courses[index];
+              return CourseCard(
+                courseName: course.courseTitle,
+                courseImg: course.imageUrl,
+                rating: course.rating,
+                tutorName: course.tutorName,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => CourseScreen(
+                        videoUrl: course.videoUrl,
+                        id: course.id,
+                      ),
                     ),
-                  ),
-                );
-              },
-            );
-          }),
+                  );
+                },
+              );
+            },
+          ),
         )
       ],
     );

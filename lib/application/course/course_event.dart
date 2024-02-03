@@ -11,5 +11,7 @@ class CourseEvent with _$CourseEvent {
   const factory CourseEvent.searchCourse(String query) = _SearchCourse;
   const factory CourseEvent.coursesByCategory(String category) =
       _CoursesByCategory;
+  const factory CourseEvent.getDesigningCourses() = _GetDesigningCourses;
+  const factory CourseEvent.getPhotographyCourses() = _GetPhotographyCourses;
   const factory CourseEvent.clear() = _Clear;
 }

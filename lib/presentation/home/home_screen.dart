@@ -13,6 +13,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<CourseBloc>().add(const CourseEvent.getAllCourses());
+    context.read<CourseBloc>().add(const CourseEvent.searchCourse("designing"));
+    context.read<CourseBloc>().add(const CourseEvent.getDesigningCourses());
+    context.read<CourseBloc>().add(const CourseEvent.getPhotographyCourses());
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 50),
@@ -32,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             builder: (context, state) {
               return CourseSection(
                 sectionName: "Most watching\ncategory",
-                courses: state.courses,
+                courses: state.courses.reversed.toList(),
               );
             },
           ),
@@ -42,6 +45,24 @@ class HomeScreen extends StatelessWidget {
               return CourseSection(
                 sectionName: 'What others are\nwatching in app',
                 courses: state.courses,
+              );
+            },
+          ),
+          const SizedBox(height: 30),
+          BlocBuilder<CourseBloc, CourseState>(
+            builder: (context, state) {
+              return CourseSection(
+                sectionName: 'Designing\ncourses',
+                courses: state.designCourses,
+              );
+            },
+          ),
+          const SizedBox(height: 30),
+          BlocBuilder<CourseBloc, CourseState>(
+            builder: (context, state) {
+              return CourseSection(
+                sectionName: 'Photography\ncourses',
+                courses: state.photographyCourses,
               );
             },
           )

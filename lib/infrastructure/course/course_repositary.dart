@@ -115,7 +115,7 @@ class CourseRepositary extends ICourseFacade {
       } else {
         final querySnap = await db
             .collection(Collection.courses)
-            .where('category', isGreaterThanOrEqualTo: query)
+            .where('category', isEqualTo: query)
             .get();
         final courseList = querySnap.docs.map((e) {
           return CourseModel.fromJson(e.data());

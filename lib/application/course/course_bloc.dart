@@ -153,5 +153,55 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
         );
       },
     );
+    // Get designing
+    on<_GetDesigningCourses>(
+      (event, emit) async {
+        emit(state.copyWith(isLoading: true));
+        final courseOpt = await iCourseFacade.searchCourse("designing");
+        emit(
+          courseOpt.fold(
+            (failure) => state.copyWith(
+              isLoading: false,
+              coursebyCategoryOpt: Some(
+                Left(failure),
+              ),
+              error: failure.error,
+            ),
+            (success) => state.copyWith(
+              isLoading: false,
+              designCourses: success,
+              coursebyCategoryOpt: Some(
+                Right(success),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+    // Get designing
+    on<_GetPhotographyCourses>(
+      (event, emit) async {
+        emit(state.copyWith(isLoading: true));
+        final courseOpt = await iCourseFacade.searchCourse("photography");
+        emit(
+          courseOpt.fold(
+            (failure) => state.copyWith(
+              isLoading: false,
+              coursebyCategoryOpt: Some(
+                Left(failure),
+              ),
+              error: failure.error,
+            ),
+            (success) => state.copyWith(
+              isLoading: false,
+              photographyCourses: success,
+              coursebyCategoryOpt: Some(
+                Right(success),
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }

@@ -47,10 +47,17 @@ class _SignInOptionsState extends State<SignInOptions> {
         children: [
           Column(
             children: [
-              const SocialButton(
-                text: "Log in with Google",
-                imageName: 'google.png',
-                imgWidth: 25,
+              GestureDetector(
+                onTap: () {
+                  context
+                      .read<SigninBloc>()
+                      .add(const SigninEvent.googleSignin());
+                },
+                child: const SocialButton(
+                  text: "Log in with Google",
+                  imageName: 'google.png',
+                  imgWidth: 25,
+                ),
               ),
               const SizedBox(height: 20),
               const SocialButton(

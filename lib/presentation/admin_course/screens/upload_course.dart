@@ -31,6 +31,7 @@ class UploadCourseState extends State<UploadCourse> {
   late TextEditingController courseDescController;
   late TextEditingController courseOverviewController;
   late TextEditingController courseTutorNameController;
+  late TextEditingController courseCategoryController;
   static List<String> lessonsList = [''];
 
   @override
@@ -46,6 +47,7 @@ class UploadCourseState extends State<UploadCourse> {
     courseDescController = TextEditingController();
     courseOverviewController = TextEditingController();
     courseTutorNameController = TextEditingController();
+    courseCategoryController = TextEditingController();
   }
 
   @override
@@ -107,6 +109,11 @@ class UploadCourseState extends State<UploadCourse> {
                     controller: courseOverviewController,
                   ),
                   CustomTextField(
+                    hintText: "Category",
+                    maxLength: 400,
+                    controller: courseCategoryController,
+                  ),
+                  CustomTextField(
                     hintText: "Tutor name",
                     controller: courseTutorNameController,
                   ),
@@ -133,7 +140,8 @@ class UploadCourseState extends State<UploadCourse> {
                             tutorName: courseTutorNameController.text,
                             lessons: lessonsList,
                             rating: 0,
-                            category: "",
+                            category:
+                                courseCategoryController.text.toLowerCase(),
                             videoUrl: widget.videoPath!,
                             imageUrl: widget.imagePath!,
                             id: '',

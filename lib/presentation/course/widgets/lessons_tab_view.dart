@@ -15,7 +15,7 @@ class LessonsTabView extends StatelessWidget {
         return SizedBox(
           child: ListView(
             children: List.generate(
-              state.courses.length,
+              state.course.lessons.length,
               (index) {
                 final lesson = state.course.lessons.reversed.toList();
                 state.course.lessons.reversed;
