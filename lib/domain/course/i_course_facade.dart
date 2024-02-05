@@ -7,4 +7,8 @@ abstract class ICourseFacade {
   Future<Either<MainFailures, List<CourseModel>>> getAllCourse();
   Future<Either<MainFailures, CourseModel>> getCourse(String id);
   Future<Either<MainFailures, List<CourseModel>>> searchCourse(String query);
+  Future<Either<MainFailures, List<CourseModel>>> topRatedCourse();
+  Future<Either<MainFailures, void>> deleteCourse(String id);
+  Future<Either<MainFailures, void>> updateCourse(
+      String id, CourseModel course);
 }

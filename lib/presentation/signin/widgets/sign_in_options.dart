@@ -1,5 +1,6 @@
 import 'package:eduzap/application/signin/signin_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
+import 'package:eduzap/domain/signin/util/role_based_login.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
 import 'package:eduzap/presentation/main/main_screen.dart';
@@ -34,11 +35,8 @@ class _SignInOptionsState extends State<SignInOptions> {
             },
             (success) {
               context.read<UserBloc>().add(const UserEvent.getCurrentUser());
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const MainScreen(),
-                ),
-              );
+
+              router(context);
             },
           ),
         );
@@ -47,26 +45,12 @@ class _SignInOptionsState extends State<SignInOptions> {
         children: [
           Column(
             children: [
-              GestureDetector(
-                onTap: () {
-                  context
-                      .read<SigninBloc>()
-                      .add(const SigninEvent.googleSignin());
-                },
-                child: const SocialButton(
-                  text: "Log in with Google",
-                  imageName: 'google.png',
-                  imgWidth: 25,
-                ),
-              ),
-              const SizedBox(height: 20),
-              const SocialButton(
-                text: "Log in with Google",
-                imageName: 'fb.png',
-                imgWidth: 32,
+              Image.asset(
+                'assets/images/elearning1.png',
+                fit: BoxFit.cover,
+                width: 350,
               ),
               const SizedBox(height: 30),
-              const CustomText(text: 'or', fontSize: 18, color: grey300),
               CustomTextField(
                 hintText: 'Enter email',
                 controller: emailController,

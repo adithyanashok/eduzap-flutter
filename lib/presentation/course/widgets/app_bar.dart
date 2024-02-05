@@ -1,6 +1,9 @@
+import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/saved/saved_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/saved/model/saved_course_model.dart';
+import 'package:eduzap/presentation/admin_course/screens/upload_course.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,6 +35,42 @@ class CourseAppBar extends StatelessWidget {
       ),
       centerTitle: true,
       actions: [
+        BlocBuilder<UserBloc, UserState>(
+          builder: (context, state) {
+            return state.user.admin
+                ? Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          context.read<CourseBloc>().add(
+                                CourseEvent.deleteCourse(id),
+                              );
+                          context
+                              .read<CourseBloc>()
+                              .add(const CourseEvent.getAllCourses());
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.delete),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UploadCourse(
+                                edit: true,
+                                courseModel: course,
+                              ),
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.edit),
+                      ),
+                    ],
+                  )
+                : const SizedBox();
+          },
+        ),
         BlocBuilder<SavedBloc, SavedState>(
           builder: (context, state) {
             return state.savedCourse.courseId == course.id

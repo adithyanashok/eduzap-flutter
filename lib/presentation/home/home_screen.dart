@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 50),
         children: [
-          const Header(),
+          Header(),
           CustomFilledFormField(
             hintText: "Graphic Illustration",
             onFieldSubmitted: (value) {},

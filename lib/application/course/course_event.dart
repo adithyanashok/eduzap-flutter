@@ -14,4 +14,8 @@ class CourseEvent with _$CourseEvent {
   const factory CourseEvent.getDesigningCourses() = _GetDesigningCourses;
   const factory CourseEvent.getPhotographyCourses() = _GetPhotographyCourses;
   const factory CourseEvent.clear() = _Clear;
+  const factory CourseEvent.topRatedCourse() = _TopRatedCourse;
+  const factory CourseEvent.deleteCourse(String id) = _DeleteCourse;
+  const factory CourseEvent.editCourse(String id, CourseModel course) =
+      _EditCourse;
 }

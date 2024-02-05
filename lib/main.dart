@@ -9,10 +9,13 @@ import 'package:eduzap/domain/di/injectable.dart';
 import 'package:eduzap/firebase_options.dart';
 import 'package:eduzap/presentation/admin_home/admin_home_screen.dart';
 import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/onboarding/onboarding_screen.dart';
+import 'package:eduzap/presentation/signin/signin_screen.dart';
 import 'package:eduzap/presentation/signup/signup_option_screen.dart';
 import 'package:eduzap/presentation/signup/signup_screen.dart';
 import 'package:eduzap/presentation/signup/widgets/signup_actions.dart';
 import 'package:eduzap/presentation/splash/splash_screen.dart';
+import 'package:eduzap/presentation/subscription/subscription_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +26,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(const MyApp());
 }
 

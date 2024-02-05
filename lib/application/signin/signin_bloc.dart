@@ -40,28 +40,5 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
         );
       },
     );
-    on<_GoogleSignin>(
-      (event, emit) async {
-        emit(state.copyWith(isLoading: true));
-        final signinOpt = await iSigninFacade.googleSignin();
-        emit(
-          signinOpt.fold(
-            (failure) => state.copyWith(
-              isLoading: false,
-              signinOpt: Some(
-                Left(failure),
-              ),
-            ),
-            (success) => state.copyWith(
-              isLoading: false,
-              user: success,
-              signinOpt: Some(
-                Right(success),
-              ),
-            ),
-          ),
-        );
-      },
-    );
   }
 }

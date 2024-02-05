@@ -3,7 +3,6 @@ import 'dart:io';
 // import 'package:dartz/dartz.dart';
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
-import 'package:eduzap/presentation/admin_course/screens/video_upload_success.dart';
 import 'package:eduzap/presentation/admin_course/widgets/lesson_text_field.dart';
 import 'package:eduzap/presentation/admin_course/widgets/video_and_image.dart';
 import 'package:eduzap/presentation/core/colors.dart';
@@ -18,7 +17,15 @@ import 'package:video_player/video_player.dart';
 class UploadCourse extends StatefulWidget {
   final String? imagePath;
   final String? videoPath;
-  const UploadCourse({super.key, this.videoPath, this.imagePath});
+  final bool edit;
+  final CourseModel? courseModel;
+  const UploadCourse({
+    super.key,
+    this.videoPath,
+    this.imagePath,
+    this.edit = false,
+    this.courseModel,
+  });
 
   @override
   UploadCourseState createState() => UploadCourseState();
@@ -32,22 +39,38 @@ class UploadCourseState extends State<UploadCourse> {
   late TextEditingController courseOverviewController;
   late TextEditingController courseTutorNameController;
   late TextEditingController courseCategoryController;
-  static List<String> lessonsList = [''];
+  static List<String> lessonsList = [""];
 
   @override
   void initState() {
     super.initState();
     setState(() {
       videoPlayerController =
-          VideoPlayerController.file(File(widget.videoPath!));
+          VideoPlayerController.file(File(widget.videoPath ?? ""));
     });
     videoPlayerController.initialize();
     videoPlayerController.setVolume(1);
-    courseTitleController = TextEditingController();
-    courseDescController = TextEditingController();
-    courseOverviewController = TextEditingController();
-    courseTutorNameController = TextEditingController();
-    courseCategoryController = TextEditingController();
+    courseTitleController =
+        TextEditingController(text: "${widget.courseModel?.courseTitle}");
+    courseDescController =
+        TextEditingController(text: "${widget.courseModel?.courseDescription}");
+    courseOverviewController =
+        TextEditingController(text: "${widget.courseModel?.courseOverview}");
+    courseTutorNameController =
+        TextEditingController(text: "${widget.courseModel?.tutorName}");
+    courseCategoryController =
+        TextEditingController(text: "${widget.courseModel?.category}");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    videoPlayerController.dispose();
+    courseTitleController.dispose();
+    courseDescController.dispose();
+    courseOverviewController.dispose();
+    courseTutorNameController.dispose();
+    courseCategoryController.dispose();
   }
 
   @override
@@ -71,10 +94,14 @@ class UploadCourseState extends State<UploadCourse> {
                 showSnackBar(context, failure.error);
               },
               (success) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const VideoUploadSuccess(),
-                  ),
+                context
+                    .read<CourseBloc>()
+                    .add(const CourseEvent.getAllCourses());
+                Navigator.of(context).pop();
+                showSnackBar(
+                  context,
+                  widget.edit ? "Course Updated" : "Course uploaded",
+                  status: true,
                 );
               },
             ),
@@ -90,10 +117,13 @@ class UploadCourseState extends State<UploadCourse> {
               padding: const EdgeInsets.all(16.0),
               child: ListView(
                 children: [
-                  VideoAndImageRow(
-                    videoPlayerController: videoPlayerController,
-                    imageFile: File(widget.imagePath!),
-                  ),
+                  if (widget.edit == false)
+                    VideoAndImageRow(
+                      videoPlayerController: videoPlayerController,
+                      imageFile: File(widget.imagePath ?? ""),
+                    )
+                  else
+                    const SizedBox(),
                   CustomTextField(
                     hintText: "Course Title",
                     controller: courseTitleController,
@@ -108,10 +138,24 @@ class UploadCourseState extends State<UploadCourse> {
                     maxLength: 400,
                     controller: courseOverviewController,
                   ),
-                  CustomTextField(
-                    hintText: "Category",
-                    maxLength: 400,
-                    controller: courseCategoryController,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: DropdownMenu(
+                      width: 350,
+                      label: const Text("Category"),
+                      onSelected: (value) {
+                        courseCategoryController.text = value ?? "coding";
+                      },
+                      dropdownMenuEntries: const [
+                        DropdownMenuEntry(value: "coding", label: "Coding"),
+                        DropdownMenuEntry(
+                            value: "photography", label: "Photography"),
+                        DropdownMenuEntry(
+                            value: "designing", label: "Designing"),
+                      ],
+                    ),
                   ),
                   CustomTextField(
                     hintText: "Tutor name",
@@ -127,27 +171,48 @@ class UploadCourseState extends State<UploadCourse> {
                   ),
                   const SizedBox(height: 20),
                   CustomPrimaryButton(
-                    text: "Upload",
+                    text: widget.edit ? "Edit" : "Upload",
                     color: primaryBlue,
                     textColor: Colors.white,
                     onTap: () {
-                      BlocProvider.of<CourseBloc>(context).add(
-                        CourseEvent.uploadCourse(
-                          course: CourseModel(
-                            courseTitle: courseTitleController.text,
-                            courseDescription: courseDescController.text,
-                            courseOverview: courseOverviewController.text,
-                            tutorName: courseTutorNameController.text,
-                            lessons: lessonsList,
-                            rating: 0,
-                            category:
-                                courseCategoryController.text.toLowerCase(),
-                            videoUrl: widget.videoPath!,
-                            imageUrl: widget.imagePath!,
-                            id: '',
+                      if (widget.edit) {
+                        BlocProvider.of<CourseBloc>(context).add(
+                          CourseEvent.editCourse(
+                            widget.courseModel!.id,
+                            CourseModel(
+                              courseTitle: courseTitleController.text,
+                              courseDescription: courseDescController.text,
+                              courseOverview: courseOverviewController.text,
+                              tutorName: courseTutorNameController.text,
+                              lessons: lessonsList,
+                              rating: 0,
+                              category:
+                                  courseCategoryController.text.toLowerCase(),
+                              videoUrl: widget.videoPath ?? "",
+                              imageUrl: widget.imagePath ?? "",
+                              id: '',
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        BlocProvider.of<CourseBloc>(context).add(
+                          CourseEvent.uploadCourse(
+                            course: CourseModel(
+                              courseTitle: courseTitleController.text,
+                              courseDescription: courseDescController.text,
+                              courseOverview: courseOverviewController.text,
+                              tutorName: courseTutorNameController.text,
+                              lessons: lessonsList,
+                              rating: 0,
+                              category:
+                                  courseCategoryController.text.toLowerCase(),
+                              videoUrl: widget.videoPath ?? "",
+                              imageUrl: widget.imagePath ?? "",
+                              id: '',
+                            ),
+                          ),
+                        );
+                      }
                     },
                   ),
                 ],
@@ -160,6 +225,7 @@ class UploadCourseState extends State<UploadCourse> {
   }
 
   /// get firends text-fields
+
   List<Widget> _getLessons() {
     List<Widget> lessonsTextFields = [];
     for (int i = 0; i < lessonsList.length; i++) {
@@ -167,12 +233,12 @@ class UploadCourseState extends State<UploadCourse> {
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: Row(
           children: [
+            // Add buttons first, then the input field
+            _addRemoveButton(true, i, lessonsList.length), // Green add button
+            const SizedBox(width: 8),
+            _addRemoveButton(false, i, lessonsList.length), // Red remove button
+            const SizedBox(width: 16),
             Expanded(child: LessonTextField(i)),
-            const SizedBox(
-              width: 16,
-            ),
-            // we need add button at last lessons row
-            _addRemoveButton(i == lessonsList.length - 1, i),
           ],
         ),
       ));
@@ -181,14 +247,16 @@ class UploadCourseState extends State<UploadCourse> {
   }
 
   /// add / remove button
-  Widget _addRemoveButton(bool add, int index) {
+  Widget _addRemoveButton(bool add, int index, int len) {
     return InkWell(
       onTap: () {
         if (add) {
           // add new text-fields at the top of all lessons textfields
           lessonsList.insert(0, '');
         } else {
-          lessonsList.removeAt(index);
+          if (len != 1) {
+            lessonsList.removeAt(index);
+          }
         }
         setState(() {});
       },

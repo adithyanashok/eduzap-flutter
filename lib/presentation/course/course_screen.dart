@@ -2,6 +2,7 @@ import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/my_learnings/mylearnings_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
 import 'package:eduzap/application/saved/saved_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/presentation/course/widgets/app_bar.dart';
 import 'package:eduzap/presentation/course/widgets/course_details.dart';
 import 'package:eduzap/presentation/course/widgets/tab_widget.dart';
@@ -48,6 +49,7 @@ class _CourseScreenState extends State<CourseScreen> {
     context.read<CourseBloc>().add(CourseEvent.getCourse(widget.id));
     context.read<RatingBloc>().add(const RatingEvent.clear());
     context.read<RatingBloc>().add(RatingEvent.getRatingByCourse(widget.id));
+    context.read<UserBloc>().add(const UserEvent.getCurrentUser());
     return DefaultTabController(
       length: 2,
       child: BlocBuilder<CourseBloc, CourseState>(

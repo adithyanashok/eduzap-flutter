@@ -29,7 +29,7 @@ class _SignInScreenState extends State<SignInScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
       itemBuilder: (context, index) => _widgets[index],
       separatorBuilder: (context, index) {
-        return const SizedBox(height: 100);
+        return const SizedBox(height: 50);
       },
       itemCount: _widgets.length,
     ));

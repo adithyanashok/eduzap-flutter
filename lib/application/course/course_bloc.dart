@@ -203,5 +203,61 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
         );
       },
     );
+    // Get top rated course
+    on<_TopRatedCourse>(
+      (event, emit) async {
+        emit(state.copyWith(isLoading: true));
+        final courseOpt = await iCourseFacade.topRatedCourse();
+        emit(
+          courseOpt.fold(
+            (failure) => state.copyWith(
+              isLoading: false,
+              error: failure.error,
+            ),
+            (success) => state.copyWith(
+              isLoading: false,
+              topRatedCourseList: success,
+            ),
+          ),
+        );
+      },
+    );
+    // Delete course
+    on<_DeleteCourse>(
+      (event, emit) async {
+        emit(state.copyWith(isLoading: true));
+        final courseOpt = await iCourseFacade.deleteCourse(event.id);
+        emit(
+          courseOpt.fold(
+            (failure) => state.copyWith(
+              isLoading: false,
+              error: failure.error,
+            ),
+            (success) => state.copyWith(
+              isLoading: false,
+            ),
+          ),
+        );
+      },
+    );
+    // Edit course
+    on<_EditCourse>(
+      (event, emit) async {
+        emit(state.copyWith(isLoading: true));
+        final courseOpt =
+            await iCourseFacade.updateCourse(event.id, event.course);
+        emit(
+          courseOpt.fold(
+            (failure) => state.copyWith(
+              isLoading: false,
+              error: failure.error,
+            ),
+            (success) => state.copyWith(
+              isLoading: false,
+            ),
+          ),
+        );
+      },
+    );
   }
 }

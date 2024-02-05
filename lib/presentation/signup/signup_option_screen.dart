@@ -1,6 +1,7 @@
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/signup/widgets/sign_up_options.dart';
 import 'package:eduzap/presentation/signup/widgets/signup_actions.dart';
+import 'package:eduzap/presentation/signup/widgets/signup_inputs.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class SignupOptionScreen extends StatelessWidget {
       textAlign: TextAlign.center,
       fontWeight: FontWeight.bold,
     ),
-    const SignupActionButtons(),
+    const SignUpInputs(),
     const SignInOptions(),
   ];
 
@@ -27,7 +28,7 @@ class SignupOptionScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 60),
           itemBuilder: (ctx, index) => _widgets[index],
           separatorBuilder: (ctx, index) => const SizedBox(
-            height: 100,
+            height: 30,
           ),
           itemCount: _widgets.length,
         ),

@@ -6,5 +6,4 @@ class SigninEvent with _$SigninEvent {
     required String email,
     required String password,
   }) = _Signin;
-  const factory SigninEvent.googleSignin() = _GoogleSignin;
 }

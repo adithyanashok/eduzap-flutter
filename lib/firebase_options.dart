@@ -50,21 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCGuSojnxKx6PLTTAYy7qk8Zzhq9Tz8Hcg',
-    appId: '1:1057309683566:web:eeb1e5401b4d48bcb2db7f',
-    messagingSenderId: '1057309683566',
-    projectId: 'eduzap-ae9d6',
-    authDomain: 'eduzap-ae9d6.firebaseapp.com',
-    databaseURL: 'https://eduzap-ae9d6-default-rtdb.firebaseio.com',
-    storageBucket: 'eduzap-ae9d6.appspot.com',
+    apiKey: 'AIzaSyBjcYVSc86HWkEZot9hk4wpwWAjNuOZz-U',
+    appId: '1:251694584193:web:5f91fc1a5458357467d880',
+    messagingSenderId: '251694584193',
+    projectId: 'eduzap-flutter',
+    authDomain: 'eduzap-flutter.firebaseapp.com',
+    storageBucket: 'eduzap-flutter.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC9yxzi0zUBD3Lpb0MhxYdSexqHJl7wAr8',
-    appId: '1:1057309683566:android:c06446ccff03d892b2db7f',
-    messagingSenderId: '1057309683566',
-    projectId: 'eduzap-ae9d6',
-    databaseURL: 'https://eduzap-ae9d6-default-rtdb.firebaseio.com',
-    storageBucket: 'eduzap-ae9d6.appspot.com',
+    apiKey: 'AIzaSyA3AK-FbWBqRj8-0UwG0hsH2dAs0LerN20',
+    appId: '1:251694584193:android:44d193d87d8a6caa67d880',
+    messagingSenderId: '251694584193',
+    projectId: 'eduzap-flutter',
+    storageBucket: 'eduzap-flutter.appspot.com',
   );
 }

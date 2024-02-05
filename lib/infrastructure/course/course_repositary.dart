@@ -8,7 +8,6 @@ import 'package:eduzap/domain/course/i_course_facade.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
 import 'package:eduzap/domain/course/util/media.dart';
 import 'package:eduzap/infrastructure/core/collections.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
@@ -125,6 +124,59 @@ class CourseRepositary extends ICourseFacade {
         }
         return Right(courseList);
       }
+    } catch (e) {
+      return Left(MainFailures.failures(error: e.toString()));
+    }
+  }
+
+  // Get top rated courses
+  @override
+  Future<Either<MainFailures, List<CourseModel>>> topRatedCourse() async {
+    try {
+      final db = FirebaseFirestore.instance;
+
+      final querySnap = await db
+          .collection(Collection.courses)
+          .where('rating', isGreaterThanOrEqualTo: 4)
+          .get();
+      final courseList = querySnap.docs.map((e) {
+        return CourseModel.fromJson(e.data());
+      }).toList();
+      if (courseList.isEmpty) {
+        return const Left(MainFailures.failures(error: "Not found"));
+      }
+      return Right(courseList);
+    } catch (e) {
+      return Left(MainFailures.failures(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<MainFailures, void>> deleteCourse(String id) async {
+    try {
+      final db = FirebaseFirestore.instance;
+      await db.collection(Collection.courses).doc(id).delete();
+      return const Right(null);
+    } catch (e) {
+      return Left(MainFailures.failures(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<MainFailures, void>> updateCourse(
+      String id, CourseModel course) async {
+    try {
+      final db = FirebaseFirestore.instance;
+
+      await db.collection(Collection.courses).doc(id).update({
+        "courseTitle": course.courseTitle,
+        "courseDescription": course.courseDescription,
+        "courseOverview": course.courseOverview,
+        "tutorName": course.tutorName,
+        "category": course.category,
+      });
+
+      return const Right(null);
     } catch (e) {
       return Left(MainFailures.failures(error: e.toString()));
     }

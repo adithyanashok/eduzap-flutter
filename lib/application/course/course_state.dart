@@ -6,6 +6,7 @@ class CourseState with _$CourseState {
     required bool isLoading,
     required List<CourseModel> courses,
     required List<CourseModel> searchList,
+    required List<CourseModel> topRatedCourseList,
     required List<CourseModel> coursebyCategoryList,
     required List<CourseModel> designCourses,
     required List<CourseModel> photographyCourses,
@@ -42,6 +43,7 @@ class CourseState with _$CourseState {
       coursebyCategoryOpt: None(),
       designCourses: [],
       photographyCourses: [],
+      topRatedCourseList: [],
     );
   }
 }

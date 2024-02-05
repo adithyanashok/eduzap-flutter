@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "1057309683566",
-    "firebase_url": "https://eduzap-ae9d6-default-rtdb.firebaseio.com",
-    "project_id": "eduzap-ae9d6",
-    "storage_bucket": "eduzap-ae9d6.appspot.com"
+    "project_number": "251694584193",
+    "project_id": "eduzap-flutter",
+    "storage_bucket": "eduzap-flutter.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1057309683566:android:c06446ccff03d892b2db7f",
+        "mobilesdk_app_id": "1:251694584193:android:44d193d87d8a6caa67d880",
         "android_client_info": {
           "package_name": "com.example.eduzap"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1057309683566-hpu4lbt8mig9gmtghkm9mr56rvadfc13.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.eduzap",
-            "certificate_hash": "4c550f4348e5fd56febc2d53cf81b6d4b62ec5be"
-          }
-        },
-        {
-          "client_id": "1057309683566-1320rkv1ijaj26odmtgtee28vmh423u2.apps.googleusercontent.com",
+          "client_id": "251694584193-5t95ppvj5ecmdq13c6pr5meakgt6qqia.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC9yxzi0zUBD3Lpb0MhxYdSexqHJl7wAr8"
+          "current_key": "AIzaSyA3AK-FbWBqRj8-0UwG0hsH2dAs0LerN20"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1057309683566-1320rkv1ijaj26odmtgtee28vmh423u2.apps.googleusercontent.com",
+              "client_id": "251694584193-5t95ppvj5ecmdq13c6pr5meakgt6qqia.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

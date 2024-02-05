@@ -17,7 +17,7 @@ class SignInOptions extends StatelessWidget {
           color: grey900,
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 20),
         CustomText(
           text: 'Signin',
           fontSize: 16,

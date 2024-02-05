@@ -16,9 +16,7 @@ class SignupActionButtons extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {
-            context.read<SigninBloc>().add(const SigninEvent.googleSignin());
-          },
+          onTap: () {},
           child: const SocialButton(
             text: "Sign Up with Google",
             imageName: 'google.png',

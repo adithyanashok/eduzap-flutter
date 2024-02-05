@@ -68,8 +68,8 @@ class _SignUpInputsState extends State<SignUpInputs> {
                   },
                   child: pickedImage == null
                       ? Image.asset(
-                          'assets/images/add-profile.png',
-                          width: 150,
+                          'assets/images/add-profile-avatar.png',
+                          width: 100,
                         )
                       : CircleAvatar(
                           radius: 50,
@@ -88,23 +88,23 @@ class _SignUpInputsState extends State<SignUpInputs> {
                   hintText: 'Enter username',
                   controller: usernameController,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 CustomTextField(
                   hintText: 'Enter email',
                   controller: emailController,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 CustomTextField(
                   hintText: 'Password',
                   controller: passwordController,
                   maxLines: null,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 CustomTextField(
                   hintText: 'Confirm password',
                   controller: confirmPasswordController,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 CustomPrimaryButton(
                   text: 'Continue',
                   color: primaryBlue,
@@ -113,6 +113,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                     context.read<SignupBloc>().add(
                           SignupEvent.signup(
                             user: UserModel(
+                              admin: false,
                               username: usernameController.text,
                               email: emailController.text,
                               password: passwordController.text,

@@ -1,6 +1,6 @@
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/course/widgets/lessons_tab_view.dart';
-import 'package:eduzap/presentation/course/widgets/tab_bar.dart';
+import 'package:eduzap/presentation/course/widgets/overview_bar.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 

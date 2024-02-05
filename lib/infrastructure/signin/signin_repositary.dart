@@ -33,34 +33,4 @@ class SigninRepositary extends ISigninFacade {
       return Left(MainFailures.failures(error: '${e.message}'));
     }
   }
-
-  @override
-  Future<Either<MainFailures, User>> googleSignin() async {
-    try {
-      final auth = FirebaseAuth.instance;
-      final googleUser = await GoogleSignIn().signIn();
-
-      final googleAuth = await googleUser?.authentication;
-      // Create a new credential
-      if (googleAuth?.accessToken != null && googleAuth?.idToken != null) {
-        final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth?.accessToken,
-          idToken: googleAuth?.idToken,
-        );
-
-        UserCredential userCredential =
-            await auth.signInWithCredential(credential);
-
-        final User? user = userCredential.user;
-
-        return Right(user!);
-      } else {
-        return const Left(MainFailures.failures(error: 'Something went wrong'));
-      }
-    } on FirebaseAuthException catch (e) {
-      return Left(MainFailures.failures(error: '${e.message}'));
-    } on PlatformException catch (e) {
-      return Left(MainFailures.failures(error: '${e.message}'));
-    }
-  }
 }

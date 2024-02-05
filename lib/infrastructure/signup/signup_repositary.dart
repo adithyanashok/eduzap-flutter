@@ -20,6 +20,7 @@ class SignupRepositary extends ISignupFacade {
   ) async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
+      User? currentUser;
       final db = FirebaseFirestore.instance;
       // Return a error when text fields in empty
       if (user.username.isEmpty ||
@@ -36,21 +37,31 @@ class SignupRepositary extends ISignupFacade {
         );
       }
       // Create a account using email
-      final userCredential = await auth.createUserWithEmailAndPassword(
+      await auth
+          .createUserWithEmailAndPassword(
         email: user.email,
         password: user.password,
+      )
+          .then(
+        (value) async {
+          if (value.user != null) {
+            currentUser = value.user!;
+
+            // Store the user details to new collection
+            final profile = await uploadImage(user.profile);
+            user = user.copyWith(profile: profile);
+            await value.user?.updateDisplayName(user.username);
+            await value.user?.updatePhotoURL(profile);
+            await db
+                .collection(Collection.users)
+                .doc(value.user?.uid)
+                .set(user.toJson());
+
+            // Return the new user
+          }
+        },
       );
-
-      // Store the user details to new collection
-      final profile = await uploadImage(user.profile);
-      user = user.copyWith(profile: profile);
-      await db
-          .collection(Collection.users)
-          .doc(userCredential.user?.uid)
-          .set(user.toJson());
-
-      // Return the new user
-      return Right(userCredential.user!);
+      return Right(currentUser!);
     } on FirebaseAuthException catch (e) {
       log(e.message.toString());
       log(e.code.toString());

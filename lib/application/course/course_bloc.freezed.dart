@@ -26,6 +26,9 @@ mixin _$CourseEvent {
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +41,9 @@ mixin _$CourseEvent {
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +56,9 @@ mixin _$CourseEvent {
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +73,9 @@ mixin _$CourseEvent {
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +88,9 @@ mixin _$CourseEvent {
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +103,9 @@ mixin _$CourseEvent {
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -201,6 +219,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return uploadCourse(course);
   }
@@ -216,6 +237,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return uploadCourse?.call(course);
   }
@@ -231,6 +255,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (uploadCourse != null) {
@@ -251,6 +278,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return uploadCourse(this);
   }
@@ -266,6 +296,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return uploadCourse?.call(this);
   }
@@ -281,6 +314,9 @@ class _$UploadCourseImpl with DiagnosticableTreeMixin implements _UploadCourse {
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (uploadCourse != null) {
@@ -354,6 +390,9 @@ class _$GetAllCoursesImpl
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return getAllCourses();
   }
@@ -369,6 +408,9 @@ class _$GetAllCoursesImpl
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return getAllCourses?.call();
   }
@@ -384,6 +426,9 @@ class _$GetAllCoursesImpl
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (getAllCourses != null) {
@@ -404,6 +449,9 @@ class _$GetAllCoursesImpl
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return getAllCourses(this);
   }
@@ -419,6 +467,9 @@ class _$GetAllCoursesImpl
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return getAllCourses?.call(this);
   }
@@ -434,6 +485,9 @@ class _$GetAllCoursesImpl
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (getAllCourses != null) {
@@ -527,6 +581,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return getCourse(id);
   }
@@ -542,6 +599,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return getCourse?.call(id);
   }
@@ -557,6 +617,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (getCourse != null) {
@@ -577,6 +640,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return getCourse(this);
   }
@@ -592,6 +658,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return getCourse?.call(this);
   }
@@ -607,6 +676,9 @@ class _$GetCourseImpl with DiagnosticableTreeMixin implements _GetCourse {
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (getCourse != null) {
@@ -705,6 +777,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return searchCourse(query);
   }
@@ -720,6 +795,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return searchCourse?.call(query);
   }
@@ -735,6 +813,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (searchCourse != null) {
@@ -755,6 +836,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return searchCourse(this);
   }
@@ -770,6 +854,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return searchCourse?.call(this);
   }
@@ -785,6 +872,9 @@ class _$SearchCourseImpl with DiagnosticableTreeMixin implements _SearchCourse {
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (searchCourse != null) {
@@ -887,6 +977,9 @@ class _$CoursesByCategoryImpl
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return coursesByCategory(category);
   }
@@ -902,6 +995,9 @@ class _$CoursesByCategoryImpl
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return coursesByCategory?.call(category);
   }
@@ -917,6 +1013,9 @@ class _$CoursesByCategoryImpl
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (coursesByCategory != null) {
@@ -937,6 +1036,9 @@ class _$CoursesByCategoryImpl
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return coursesByCategory(this);
   }
@@ -952,6 +1054,9 @@ class _$CoursesByCategoryImpl
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return coursesByCategory?.call(this);
   }
@@ -967,6 +1072,9 @@ class _$CoursesByCategoryImpl
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (coursesByCategory != null) {
@@ -1042,6 +1150,9 @@ class _$GetDesigningCoursesImpl
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return getDesigningCourses();
   }
@@ -1057,6 +1168,9 @@ class _$GetDesigningCoursesImpl
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return getDesigningCourses?.call();
   }
@@ -1072,6 +1186,9 @@ class _$GetDesigningCoursesImpl
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (getDesigningCourses != null) {
@@ -1092,6 +1209,9 @@ class _$GetDesigningCoursesImpl
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return getDesigningCourses(this);
   }
@@ -1107,6 +1227,9 @@ class _$GetDesigningCoursesImpl
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return getDesigningCourses?.call(this);
   }
@@ -1122,6 +1245,9 @@ class _$GetDesigningCoursesImpl
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (getDesigningCourses != null) {
@@ -1192,6 +1318,9 @@ class _$GetPhotographyCoursesImpl
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return getPhotographyCourses();
   }
@@ -1207,6 +1336,9 @@ class _$GetPhotographyCoursesImpl
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return getPhotographyCourses?.call();
   }
@@ -1222,6 +1354,9 @@ class _$GetPhotographyCoursesImpl
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (getPhotographyCourses != null) {
@@ -1242,6 +1377,9 @@ class _$GetPhotographyCoursesImpl
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return getPhotographyCourses(this);
   }
@@ -1257,6 +1395,9 @@ class _$GetPhotographyCoursesImpl
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return getPhotographyCourses?.call(this);
   }
@@ -1272,6 +1413,9 @@ class _$GetPhotographyCoursesImpl
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (getPhotographyCourses != null) {
@@ -1337,6 +1481,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     required TResult Function() getDesigningCourses,
     required TResult Function() getPhotographyCourses,
     required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
   }) {
     return clear();
   }
@@ -1352,6 +1499,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult? Function()? getDesigningCourses,
     TResult? Function()? getPhotographyCourses,
     TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
   }) {
     return clear?.call();
   }
@@ -1367,6 +1517,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult Function()? getDesigningCourses,
     TResult Function()? getPhotographyCourses,
     TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
     required TResult orElse(),
   }) {
     if (clear != null) {
@@ -1387,6 +1540,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     required TResult Function(_GetPhotographyCourses value)
         getPhotographyCourses,
     required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
   }) {
     return clear(this);
   }
@@ -1402,6 +1558,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
   }) {
     return clear?.call(this);
   }
@@ -1417,6 +1576,9 @@ class _$ClearImpl with DiagnosticableTreeMixin implements _Clear {
     TResult Function(_GetDesigningCourses value)? getDesigningCourses,
     TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
     TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
     required TResult orElse(),
   }) {
     if (clear != null) {
@@ -1431,10 +1593,590 @@ abstract class _Clear implements CourseEvent {
 }
 
 /// @nodoc
+abstract class _$$TopRatedCourseImplCopyWith<$Res> {
+  factory _$$TopRatedCourseImplCopyWith(_$TopRatedCourseImpl value,
+          $Res Function(_$TopRatedCourseImpl) then) =
+      __$$TopRatedCourseImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TopRatedCourseImplCopyWithImpl<$Res>
+    extends _$CourseEventCopyWithImpl<$Res, _$TopRatedCourseImpl>
+    implements _$$TopRatedCourseImplCopyWith<$Res> {
+  __$$TopRatedCourseImplCopyWithImpl(
+      _$TopRatedCourseImpl _value, $Res Function(_$TopRatedCourseImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$TopRatedCourseImpl
+    with DiagnosticableTreeMixin
+    implements _TopRatedCourse {
+  const _$TopRatedCourseImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseEvent.topRatedCourse()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CourseEvent.topRatedCourse'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TopRatedCourseImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CourseModel course) uploadCourse,
+    required TResult Function() getAllCourses,
+    required TResult Function(String id) getCourse,
+    required TResult Function(String query) searchCourse,
+    required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
+    required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
+  }) {
+    return topRatedCourse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CourseModel course)? uploadCourse,
+    TResult? Function()? getAllCourses,
+    TResult? Function(String id)? getCourse,
+    TResult? Function(String query)? searchCourse,
+    TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
+    TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
+  }) {
+    return topRatedCourse?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CourseModel course)? uploadCourse,
+    TResult Function()? getAllCourses,
+    TResult Function(String id)? getCourse,
+    TResult Function(String query)? searchCourse,
+    TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
+    TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (topRatedCourse != null) {
+      return topRatedCourse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UploadCourse value) uploadCourse,
+    required TResult Function(_GetAllCourses value) getAllCourses,
+    required TResult Function(_GetCourse value) getCourse,
+    required TResult Function(_SearchCourse value) searchCourse,
+    required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
+    required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
+  }) {
+    return topRatedCourse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UploadCourse value)? uploadCourse,
+    TResult? Function(_GetAllCourses value)? getAllCourses,
+    TResult? Function(_GetCourse value)? getCourse,
+    TResult? Function(_SearchCourse value)? searchCourse,
+    TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
+  }) {
+    return topRatedCourse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UploadCourse value)? uploadCourse,
+    TResult Function(_GetAllCourses value)? getAllCourses,
+    TResult Function(_GetCourse value)? getCourse,
+    TResult Function(_SearchCourse value)? searchCourse,
+    TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (topRatedCourse != null) {
+      return topRatedCourse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TopRatedCourse implements CourseEvent {
+  const factory _TopRatedCourse() = _$TopRatedCourseImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteCourseImplCopyWith<$Res> {
+  factory _$$DeleteCourseImplCopyWith(
+          _$DeleteCourseImpl value, $Res Function(_$DeleteCourseImpl) then) =
+      __$$DeleteCourseImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeleteCourseImplCopyWithImpl<$Res>
+    extends _$CourseEventCopyWithImpl<$Res, _$DeleteCourseImpl>
+    implements _$$DeleteCourseImplCopyWith<$Res> {
+  __$$DeleteCourseImplCopyWithImpl(
+      _$DeleteCourseImpl _value, $Res Function(_$DeleteCourseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteCourseImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteCourseImpl with DiagnosticableTreeMixin implements _DeleteCourse {
+  const _$DeleteCourseImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseEvent.deleteCourse(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseEvent.deleteCourse'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteCourseImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteCourseImplCopyWith<_$DeleteCourseImpl> get copyWith =>
+      __$$DeleteCourseImplCopyWithImpl<_$DeleteCourseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CourseModel course) uploadCourse,
+    required TResult Function() getAllCourses,
+    required TResult Function(String id) getCourse,
+    required TResult Function(String query) searchCourse,
+    required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
+    required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
+  }) {
+    return deleteCourse(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CourseModel course)? uploadCourse,
+    TResult? Function()? getAllCourses,
+    TResult? Function(String id)? getCourse,
+    TResult? Function(String query)? searchCourse,
+    TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
+    TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
+  }) {
+    return deleteCourse?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CourseModel course)? uploadCourse,
+    TResult Function()? getAllCourses,
+    TResult Function(String id)? getCourse,
+    TResult Function(String query)? searchCourse,
+    TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
+    TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (deleteCourse != null) {
+      return deleteCourse(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UploadCourse value) uploadCourse,
+    required TResult Function(_GetAllCourses value) getAllCourses,
+    required TResult Function(_GetCourse value) getCourse,
+    required TResult Function(_SearchCourse value) searchCourse,
+    required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
+    required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
+  }) {
+    return deleteCourse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UploadCourse value)? uploadCourse,
+    TResult? Function(_GetAllCourses value)? getAllCourses,
+    TResult? Function(_GetCourse value)? getCourse,
+    TResult? Function(_SearchCourse value)? searchCourse,
+    TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
+  }) {
+    return deleteCourse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UploadCourse value)? uploadCourse,
+    TResult Function(_GetAllCourses value)? getAllCourses,
+    TResult Function(_GetCourse value)? getCourse,
+    TResult Function(_SearchCourse value)? searchCourse,
+    TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (deleteCourse != null) {
+      return deleteCourse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCourse implements CourseEvent {
+  const factory _DeleteCourse(final String id) = _$DeleteCourseImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteCourseImplCopyWith<_$DeleteCourseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EditCourseImplCopyWith<$Res> {
+  factory _$$EditCourseImplCopyWith(
+          _$EditCourseImpl value, $Res Function(_$EditCourseImpl) then) =
+      __$$EditCourseImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, CourseModel course});
+
+  $CourseModelCopyWith<$Res> get course;
+}
+
+/// @nodoc
+class __$$EditCourseImplCopyWithImpl<$Res>
+    extends _$CourseEventCopyWithImpl<$Res, _$EditCourseImpl>
+    implements _$$EditCourseImplCopyWith<$Res> {
+  __$$EditCourseImplCopyWithImpl(
+      _$EditCourseImpl _value, $Res Function(_$EditCourseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? course = null,
+  }) {
+    return _then(_$EditCourseImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as CourseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CourseModelCopyWith<$Res> get course {
+    return $CourseModelCopyWith<$Res>(_value.course, (value) {
+      return _then(_value.copyWith(course: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$EditCourseImpl with DiagnosticableTreeMixin implements _EditCourse {
+  const _$EditCourseImpl(this.id, this.course);
+
+  @override
+  final String id;
+  @override
+  final CourseModel course;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseEvent.editCourse(id: $id, course: $course)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseEvent.editCourse'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('course', course));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditCourseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.course, course) || other.course == course));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, course);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditCourseImplCopyWith<_$EditCourseImpl> get copyWith =>
+      __$$EditCourseImplCopyWithImpl<_$EditCourseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CourseModel course) uploadCourse,
+    required TResult Function() getAllCourses,
+    required TResult Function(String id) getCourse,
+    required TResult Function(String query) searchCourse,
+    required TResult Function(String category) coursesByCategory,
+    required TResult Function() getDesigningCourses,
+    required TResult Function() getPhotographyCourses,
+    required TResult Function() clear,
+    required TResult Function() topRatedCourse,
+    required TResult Function(String id) deleteCourse,
+    required TResult Function(String id, CourseModel course) editCourse,
+  }) {
+    return editCourse(id, course);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CourseModel course)? uploadCourse,
+    TResult? Function()? getAllCourses,
+    TResult? Function(String id)? getCourse,
+    TResult? Function(String query)? searchCourse,
+    TResult? Function(String category)? coursesByCategory,
+    TResult? Function()? getDesigningCourses,
+    TResult? Function()? getPhotographyCourses,
+    TResult? Function()? clear,
+    TResult? Function()? topRatedCourse,
+    TResult? Function(String id)? deleteCourse,
+    TResult? Function(String id, CourseModel course)? editCourse,
+  }) {
+    return editCourse?.call(id, course);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CourseModel course)? uploadCourse,
+    TResult Function()? getAllCourses,
+    TResult Function(String id)? getCourse,
+    TResult Function(String query)? searchCourse,
+    TResult Function(String category)? coursesByCategory,
+    TResult Function()? getDesigningCourses,
+    TResult Function()? getPhotographyCourses,
+    TResult Function()? clear,
+    TResult Function()? topRatedCourse,
+    TResult Function(String id)? deleteCourse,
+    TResult Function(String id, CourseModel course)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (editCourse != null) {
+      return editCourse(id, course);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UploadCourse value) uploadCourse,
+    required TResult Function(_GetAllCourses value) getAllCourses,
+    required TResult Function(_GetCourse value) getCourse,
+    required TResult Function(_SearchCourse value) searchCourse,
+    required TResult Function(_CoursesByCategory value) coursesByCategory,
+    required TResult Function(_GetDesigningCourses value) getDesigningCourses,
+    required TResult Function(_GetPhotographyCourses value)
+        getPhotographyCourses,
+    required TResult Function(_Clear value) clear,
+    required TResult Function(_TopRatedCourse value) topRatedCourse,
+    required TResult Function(_DeleteCourse value) deleteCourse,
+    required TResult Function(_EditCourse value) editCourse,
+  }) {
+    return editCourse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UploadCourse value)? uploadCourse,
+    TResult? Function(_GetAllCourses value)? getAllCourses,
+    TResult? Function(_GetCourse value)? getCourse,
+    TResult? Function(_SearchCourse value)? searchCourse,
+    TResult? Function(_CoursesByCategory value)? coursesByCategory,
+    TResult? Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult? Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult? Function(_Clear value)? clear,
+    TResult? Function(_TopRatedCourse value)? topRatedCourse,
+    TResult? Function(_DeleteCourse value)? deleteCourse,
+    TResult? Function(_EditCourse value)? editCourse,
+  }) {
+    return editCourse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UploadCourse value)? uploadCourse,
+    TResult Function(_GetAllCourses value)? getAllCourses,
+    TResult Function(_GetCourse value)? getCourse,
+    TResult Function(_SearchCourse value)? searchCourse,
+    TResult Function(_CoursesByCategory value)? coursesByCategory,
+    TResult Function(_GetDesigningCourses value)? getDesigningCourses,
+    TResult Function(_GetPhotographyCourses value)? getPhotographyCourses,
+    TResult Function(_Clear value)? clear,
+    TResult Function(_TopRatedCourse value)? topRatedCourse,
+    TResult Function(_DeleteCourse value)? deleteCourse,
+    TResult Function(_EditCourse value)? editCourse,
+    required TResult orElse(),
+  }) {
+    if (editCourse != null) {
+      return editCourse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditCourse implements CourseEvent {
+  const factory _EditCourse(final String id, final CourseModel course) =
+      _$EditCourseImpl;
+
+  String get id;
+  CourseModel get course;
+  @JsonKey(ignore: true)
+  _$$EditCourseImplCopyWith<_$EditCourseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CourseState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<CourseModel> get courses => throw _privateConstructorUsedError;
   List<CourseModel> get searchList => throw _privateConstructorUsedError;
+  List<CourseModel> get topRatedCourseList =>
+      throw _privateConstructorUsedError;
   List<CourseModel> get coursebyCategoryList =>
       throw _privateConstructorUsedError;
   List<CourseModel> get designCourses => throw _privateConstructorUsedError;
@@ -1466,6 +2208,7 @@ abstract class $CourseStateCopyWith<$Res> {
       {bool isLoading,
       List<CourseModel> courses,
       List<CourseModel> searchList,
+      List<CourseModel> topRatedCourseList,
       List<CourseModel> coursebyCategoryList,
       List<CourseModel> designCourses,
       List<CourseModel> photographyCourses,
@@ -1495,6 +2238,7 @@ class _$CourseStateCopyWithImpl<$Res, $Val extends CourseState>
     Object? isLoading = null,
     Object? courses = null,
     Object? searchList = null,
+    Object? topRatedCourseList = null,
     Object? coursebyCategoryList = null,
     Object? designCourses = null,
     Object? photographyCourses = null,
@@ -1517,6 +2261,10 @@ class _$CourseStateCopyWithImpl<$Res, $Val extends CourseState>
       searchList: null == searchList
           ? _value.searchList
           : searchList // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      topRatedCourseList: null == topRatedCourseList
+          ? _value.topRatedCourseList
+          : topRatedCourseList // ignore: cast_nullable_to_non_nullable
               as List<CourseModel>,
       coursebyCategoryList: null == coursebyCategoryList
           ? _value.coursebyCategoryList
@@ -1578,6 +2326,7 @@ abstract class _$$CourseStateImplCopyWith<$Res>
       {bool isLoading,
       List<CourseModel> courses,
       List<CourseModel> searchList,
+      List<CourseModel> topRatedCourseList,
       List<CourseModel> coursebyCategoryList,
       List<CourseModel> designCourses,
       List<CourseModel> photographyCourses,
@@ -1606,6 +2355,7 @@ class __$$CourseStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? courses = null,
     Object? searchList = null,
+    Object? topRatedCourseList = null,
     Object? coursebyCategoryList = null,
     Object? designCourses = null,
     Object? photographyCourses = null,
@@ -1628,6 +2378,10 @@ class __$$CourseStateImplCopyWithImpl<$Res>
       searchList: null == searchList
           ? _value._searchList
           : searchList // ignore: cast_nullable_to_non_nullable
+              as List<CourseModel>,
+      topRatedCourseList: null == topRatedCourseList
+          ? _value._topRatedCourseList
+          : topRatedCourseList // ignore: cast_nullable_to_non_nullable
               as List<CourseModel>,
       coursebyCategoryList: null == coursebyCategoryList
           ? _value._coursebyCategoryList
@@ -1676,6 +2430,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       {required this.isLoading,
       required final List<CourseModel> courses,
       required final List<CourseModel> searchList,
+      required final List<CourseModel> topRatedCourseList,
       required final List<CourseModel> coursebyCategoryList,
       required final List<CourseModel> designCourses,
       required final List<CourseModel> photographyCourses,
@@ -1687,6 +2442,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       this.error})
       : _courses = courses,
         _searchList = searchList,
+        _topRatedCourseList = topRatedCourseList,
         _coursebyCategoryList = coursebyCategoryList,
         _designCourses = designCourses,
         _photographyCourses = photographyCourses;
@@ -1707,6 +2463,15 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
     if (_searchList is EqualUnmodifiableListView) return _searchList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_searchList);
+  }
+
+  final List<CourseModel> _topRatedCourseList;
+  @override
+  List<CourseModel> get topRatedCourseList {
+    if (_topRatedCourseList is EqualUnmodifiableListView)
+      return _topRatedCourseList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topRatedCourseList);
   }
 
   final List<CourseModel> _coursebyCategoryList;
@@ -1750,7 +2515,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CourseState(isLoading: $isLoading, courses: $courses, searchList: $searchList, coursebyCategoryList: $coursebyCategoryList, designCourses: $designCourses, photographyCourses: $photographyCourses, course: $course, courseOpt: $courseOpt, courseListOpt: $courseListOpt, coursebyCategoryOpt: $coursebyCategoryOpt, searchListOpt: $searchListOpt, error: $error)';
+    return 'CourseState(isLoading: $isLoading, courses: $courses, searchList: $searchList, topRatedCourseList: $topRatedCourseList, coursebyCategoryList: $coursebyCategoryList, designCourses: $designCourses, photographyCourses: $photographyCourses, course: $course, courseOpt: $courseOpt, courseListOpt: $courseListOpt, coursebyCategoryOpt: $coursebyCategoryOpt, searchListOpt: $searchListOpt, error: $error)';
   }
 
   @override
@@ -1761,6 +2526,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('courses', courses))
       ..add(DiagnosticsProperty('searchList', searchList))
+      ..add(DiagnosticsProperty('topRatedCourseList', topRatedCourseList))
       ..add(DiagnosticsProperty('coursebyCategoryList', coursebyCategoryList))
       ..add(DiagnosticsProperty('designCourses', designCourses))
       ..add(DiagnosticsProperty('photographyCourses', photographyCourses))
@@ -1782,6 +2548,8 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
             const DeepCollectionEquality().equals(other._courses, _courses) &&
             const DeepCollectionEquality()
                 .equals(other._searchList, _searchList) &&
+            const DeepCollectionEquality()
+                .equals(other._topRatedCourseList, _topRatedCourseList) &&
             const DeepCollectionEquality()
                 .equals(other._coursebyCategoryList, _coursebyCategoryList) &&
             const DeepCollectionEquality()
@@ -1806,6 +2574,7 @@ class _$CourseStateImpl with DiagnosticableTreeMixin implements _CourseState {
       isLoading,
       const DeepCollectionEquality().hash(_courses),
       const DeepCollectionEquality().hash(_searchList),
+      const DeepCollectionEquality().hash(_topRatedCourseList),
       const DeepCollectionEquality().hash(_coursebyCategoryList),
       const DeepCollectionEquality().hash(_designCourses),
       const DeepCollectionEquality().hash(_photographyCourses),
@@ -1828,6 +2597,7 @@ abstract class _CourseState implements CourseState {
       {required final bool isLoading,
       required final List<CourseModel> courses,
       required final List<CourseModel> searchList,
+      required final List<CourseModel> topRatedCourseList,
       required final List<CourseModel> coursebyCategoryList,
       required final List<CourseModel> designCourses,
       required final List<CourseModel> photographyCourses,
@@ -1847,6 +2617,8 @@ abstract class _CourseState implements CourseState {
   List<CourseModel> get courses;
   @override
   List<CourseModel> get searchList;
+  @override
+  List<CourseModel> get topRatedCourseList;
   @override
   List<CourseModel> get coursebyCategoryList;
   @override

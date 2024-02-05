@@ -1,11 +1,11 @@
 import 'package:animated_rating_stars/animated_rating_stars.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
-import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/rating/model/rating_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/text_fields.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -151,6 +151,8 @@ class RatingLabel extends StatelessWidget {
   }
 
   Future<dynamic> addRatingPopup(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
     double rating = 1;
     return showDialog(
       context: context,
@@ -195,28 +197,24 @@ class RatingLabel extends StatelessWidget {
                   controller: textEditingController,
                   errorText: state.errorText,
                 ),
-                BlocBuilder<UserBloc, UserState>(
-                  builder: (context, state) {
-                    return CustomPrimaryButton(
-                      text: "Submit",
-                      color: primaryBlue,
-                      textColor: Colors.white,
-                      onTap: () {
-                        context.read<RatingBloc>().add(
-                              RatingEvent.addRating(
-                                RatingModel(
-                                  profile: state.user.profile,
-                                  name: state.user.username,
-                                  rating: rating,
-                                  ratingString: textEditingController.text,
-                                  courseId: courseId,
-                                ),
-                              ),
-                            );
-                      },
-                    );
+                CustomPrimaryButton(
+                  text: "Submit",
+                  color: primaryBlue,
+                  textColor: Colors.white,
+                  onTap: () {
+                    context.read<RatingBloc>().add(
+                          RatingEvent.addRating(
+                            RatingModel(
+                              profile: "${user!.photoURL}",
+                              name: "${user.displayName}",
+                              rating: rating,
+                              ratingString: textEditingController.text,
+                              courseId: courseId,
+                            ),
+                          ),
+                        );
                   },
-                )
+                ),
               ],
             );
           },
