@@ -51,15 +51,15 @@ class UploadCourseState extends State<UploadCourse> {
     videoPlayerController.initialize();
     videoPlayerController.setVolume(1);
     courseTitleController =
-        TextEditingController(text: "${widget.courseModel?.courseTitle}");
+        TextEditingController(text: widget.courseModel?.courseTitle);
     courseDescController =
-        TextEditingController(text: "${widget.courseModel?.courseDescription}");
+        TextEditingController(text: widget.courseModel?.courseDescription);
     courseOverviewController =
-        TextEditingController(text: "${widget.courseModel?.courseOverview}");
+        TextEditingController(text: widget.courseModel?.courseOverview);
     courseTutorNameController =
-        TextEditingController(text: "${widget.courseModel?.tutorName}");
+        TextEditingController(text: widget.courseModel?.tutorName);
     courseCategoryController =
-        TextEditingController(text: "${widget.courseModel?.category}");
+        TextEditingController(text: widget.courseModel?.category);
   }
 
   @override

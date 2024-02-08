@@ -1,5 +1,9 @@
+import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/widgets/buttons.dart';
+import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:eduzap/presentation/core/snack_bar.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({super.key});
@@ -21,10 +25,9 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    print("Payment Success: ${response.paymentId}");
+    showSnackBar(context, "Payment Success: ${response.paymentId}");
     // Call your server to handle the subscription creation
 
-    // You can navigate to a success screen or handle the UI accordingly
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const SubscriptionSuccessScreen(),
@@ -33,20 +36,16 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    print("Payment Error: ${response.code} - ${response.message}");
-    // You can show an error message to the user or handle the UI accordingly
+    showSnackBar(context, "Payment Canceled", status: true);
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    print("External Wallet: ${response.walletName}");
-    // You can handle external wallet payments if necessary
+    showSnackBar(context, "External Wallet: ${response.walletName}");
   }
 
   void _startPayment() {
     var options = {
       'key': 'rzp_test_II1GS8llWSby5u',
-      'amount': 999 *
-          100, // amount in the smallest currency unit (e.g., paise or cents)
       'name': 'Your Company Name',
       'description': 'Subscription Plan',
       'prefill': {
@@ -62,7 +61,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     try {
       _razorpay.open(options);
     } catch (e) {
-      print('Error during payment: $e');
+      showSnackBar(context, "$e");
     }
   }
 
@@ -76,13 +75,66 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Razorpay Subscription Example'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _startPayment,
-          child: const Text('Subscribe'),
+        title: const CustomText(
+          text: "Subscription",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: primaryBlue,
         ),
+        centerTitle: true,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 360,
+            height: 100,
+            decoration: BoxDecoration(
+              color: primaryBlue,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        CustomText(
+                          text: "Monthly Plan",
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        CustomText(
+                          text: "₹999 billed every month",
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                    CustomText(
+                      text: "₹999",
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Center(
+            child: TextButton(
+              onPressed: _startPayment,
+              child: const Text('Subscribe'),
+            ),
+          ),
+        ],
       ),
     );
   }

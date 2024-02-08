@@ -21,6 +21,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
         emit(
           state.copyWith(
             searchList: [],
+            courses: [],
+            courseOpt: const None(),
             searchListOpt: const None(),
             coursebyCategoryList: [],
             coursebyCategoryOpt: const None(),
