@@ -27,7 +27,9 @@ class CourseDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TutorName(),
+          TutorName(
+            tutorName: tutorName,
+          ),
           CustomText(
             text: courseTitle,
             fontSize: 22,

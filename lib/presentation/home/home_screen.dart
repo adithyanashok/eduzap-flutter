@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/home/widgets/category_section.dart';
@@ -12,6 +14,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    print(size.width);
     context.read<CourseBloc>().add(const CourseEvent.getAllCourses());
     context.read<CourseBloc>().add(const CourseEvent.searchCourse("designing"));
     context.read<CourseBloc>().add(const CourseEvent.getDesigningCourses());
@@ -29,7 +33,7 @@ class HomeScreen extends StatelessWidget {
               color: grey400,
             ),
           ),
-          const CategorySection(),
+          CategorySection(),
           const SizedBox(height: 30),
           BlocBuilder<CourseBloc, CourseState>(
             builder: (context, state) {

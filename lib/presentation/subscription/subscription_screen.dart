@@ -1,9 +1,16 @@
+import 'package:eduzap/application/earnings/earnings_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
+import 'package:eduzap/domain/earnings/model/earnings_model.dart';
+import 'package:eduzap/domain/user/model/user_model.dart';
 import 'package:eduzap/presentation/core/colors.dart';
-import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
+import 'package:intl/intl.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({super.key});
@@ -13,6 +20,7 @@ class SubscriptionScreen extends StatefulWidget {
 }
 
 class _SubscriptionScreenState extends State<SubscriptionScreen> {
+  final user = FirebaseAuth.instance.currentUser;
   late Razorpay _razorpay;
 
   @override
@@ -25,9 +33,14 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    showSnackBar(context, "Payment Success: ${response.paymentId}");
-    // Call your server to handle the subscription creation
-
+    showSnackBar(context, "Payment Success: ${response.paymentId}",
+        status: true);
+    context.read<UserBloc>().add(const UserEvent.updateSubscription());
+    context.read<EarningsBloc>().add(
+          EarningsEvent.addATransaction(
+            EarningsModel(amount: 999, email: '${user!.email}'),
+          ),
+        );
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const SubscriptionSuccessScreen(),
@@ -46,16 +59,16 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   void _startPayment() {
     var options = {
       'key': 'rzp_test_II1GS8llWSby5u',
-      'name': 'Your Company Name',
-      'description': 'Subscription Plan',
+      'name': 'EduZap',
+      'description': 'Subscription',
+      'amount': 999 * 100,
       'prefill': {
         'contact': 'user@example.com',
         'email': 'user@example.com',
       },
       'theme': {
-        'color': '#3399cc',
+        'color': '#035efc',
       },
-      'subscription_id': 'sub_NXFlCDs79TwLIu',
     };
 
     try {
@@ -73,6 +86,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = context.read<UserBloc>().state.user;
     return Scaffold(
       appBar: AppBar(
         title: const CustomText(
@@ -85,7 +99,10 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          user.subscriber ? SubscriptionDetails(user: user) : const SizedBox(),
+          const SizedBox(height: 20),
           Container(
             width: 360,
             height: 100,
@@ -129,15 +146,83 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
             ),
           ),
           Center(
-            child: TextButton(
-              onPressed: _startPayment,
-              child: const Text('Subscribe'),
+            child: ElevatedButton(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(primaryBlue),
+              ),
+              onPressed: user.subscriber ? () {} : _startPayment,
+              child: CustomText(
+                text: user.subscriber ? 'Current Subscription' : 'Subscribe',
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
       ),
     );
   }
+}
+
+class SubscriptionDetails extends StatelessWidget {
+  const SubscriptionDetails({
+    super.key,
+    required this.user,
+  });
+
+  final UserModel user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            const CustomText(
+              text: "Current: ",
+              fontSize: 16,
+              color: primaryBlue,
+              textAlign: TextAlign.center,
+              fontWeight: FontWeight.bold,
+            ),
+            CustomText(
+              text: getDate(user.currentSubDate!),
+              fontSize: 13,
+              color: primaryBlue,
+              fontWeight: FontWeight.bold,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        const SizedBox(width: 20),
+        Column(
+          children: [
+            const CustomText(
+              text: "Next Due On: ",
+              fontSize: 16,
+              color: primaryBlue,
+              textAlign: TextAlign.center,
+              fontWeight: FontWeight.bold,
+            ),
+            CustomText(
+              text: getDate(user.nextSubDate!),
+              fontSize: 13,
+              color: primaryBlue,
+              fontWeight: FontWeight.bold,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+String getDate(DateTime date) {
+  return DateFormat.yMMMMEEEEd().format(date);
 }
 
 class SubscriptionSuccessScreen extends StatelessWidget {
@@ -149,11 +234,31 @@ class SubscriptionSuccessScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Subscription Success'),
       ),
-      body: const Center(
-        child: Text(
-          'Congratulations! Your subscription was successful.',
-          style: TextStyle(fontSize: 18),
-          textAlign: TextAlign.center,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              'Congratulations! Your subscription was successful.',
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            ElevatedButton(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(primaryBlue),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const CustomText(
+                text: 'Home',
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );

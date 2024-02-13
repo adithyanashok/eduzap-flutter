@@ -1,13 +1,9 @@
 import 'package:eduzap/application/signin/signin_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/domain/signin/util/role_based_login.dart';
-import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/core/snack_bar.dart';
-import 'package:eduzap/presentation/main/main_screen.dart';
 import 'package:eduzap/presentation/signin/widgets/sign_in_buttons.dart';
-import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/text_fields.dart';
-import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

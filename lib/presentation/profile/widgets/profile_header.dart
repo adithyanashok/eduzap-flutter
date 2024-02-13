@@ -1,10 +1,7 @@
 import 'package:eduzap/domain/core/signout/signout.dart';
 import 'package:eduzap/presentation/core/colors.dart';
-import 'package:eduzap/presentation/core/snack_bar.dart';
-import 'package:eduzap/presentation/signin/signin_screen.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {

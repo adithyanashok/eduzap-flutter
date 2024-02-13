@@ -3,58 +3,60 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:eduzap/domain/core/failures.dart';
-import 'package:eduzap/domain/user/i_user_facade.dart';
-import 'package:eduzap/domain/user/model/user_model.dart';
+import 'package:eduzap/domain/earnings/i_earnings_facade.dart';
+import 'package:eduzap/domain/earnings/model/earnings_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'user_event.dart';
-part 'user_state.dart';
-part 'user_bloc.freezed.dart';
+part 'earnings_event.dart';
+part 'earnings_state.dart';
+part 'earnings_bloc.freezed.dart';
 
 @injectable
-class UserBloc extends Bloc<UserEvent, UserState> {
-  IUserFacade iUserFacade;
-  UserBloc(this.iUserFacade) : super(UserState.initial()) {
-    on<_GetCurrentUser>(
+class EarningsBloc extends Bloc<EarningsEvent, EarningsState> {
+  IEarningsFacade iEarningsFacade;
+  EarningsBloc(this.iEarningsFacade) : super(EarningsState.initial()) {
+    on<_AddATransaction>(
       (event, emit) async {
-        emit(state.copyWith(isLoading: true));
-        final userOpt = await iUserFacade.getCurrentUser();
+        final earningsOpt =
+            await iEarningsFacade.addATransaction(event.earnings);
         emit(
-          userOpt.fold(
+          earningsOpt.fold(
             (failure) => state.copyWith(
-              isLoading: false,
-              userOpt: Some(
+              earningsList: [],
+              earningsListOpt: Some(
                 Left(failure),
               ),
             ),
             (success) => state.copyWith(
-              isLoading: false,
-              user: success,
-              userOpt: Some(
-                Right(success),
+              earningsList: [],
+              earningsListOpt: Some(
+                Right([success]),
               ),
             ),
           ),
         );
       },
     );
-    on<_UpdateSubscription>(
+
+    on<_GetEarnings>(
       (event, emit) async {
         emit(state.copyWith(isLoading: true));
-        final userOpt = await iUserFacade.updateSubscription();
+        final earningsOpt = await iEarningsFacade.getEarnings();
+        log(earningsOpt.toString());
         emit(
-          userOpt.fold(
+          earningsOpt.fold(
             (failure) => state.copyWith(
+              earningsList: [],
               isLoading: false,
-              userOpt: Some(
+              earningsListOpt: Some(
                 Left(failure),
               ),
             ),
             (success) => state.copyWith(
+              earningsList: success,
               isLoading: false,
-              user: success,
-              userOpt: Some(
+              earningsListOpt: Some(
                 Right(success),
               ),
             ),
@@ -63,26 +65,19 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       },
     );
 
-    on<_GetAllStudents>(
+    on<_GetTotalEarnings>(
       (event, emit) async {
         emit(state.copyWith(isLoading: true));
-        final userOpt = await iUserFacade.getAllStudents();
+        final earningsOpt = await iEarningsFacade.getTotalEarnings();
+        log(earningsOpt.toString());
         emit(
-          userOpt.fold(
+          earningsOpt.fold(
             (failure) => state.copyWith(
               isLoading: false,
-              userOpt: Some(
-                Left(failure),
-              ),
             ),
             (success) => state.copyWith(
+              totalEarnings: success,
               isLoading: false,
-              studentsList: success,
-              userOpt: Some(
-                Right(
-                  success[0],
-                ),
-              ),
             ),
           ),
         );

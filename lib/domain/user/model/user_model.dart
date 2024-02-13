@@ -10,6 +10,9 @@ class UserModel with _$UserModel {
     required String password,
     required String profile,
     required bool admin,
+    required bool subscriber,
+    DateTime? currentSubDate,
+    DateTime? nextSubDate,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

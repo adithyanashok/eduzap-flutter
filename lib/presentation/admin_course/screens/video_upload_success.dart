@@ -1,4 +1,3 @@
-import 'package:eduzap/presentation/admin_course/screens/admin_courses_screen.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';

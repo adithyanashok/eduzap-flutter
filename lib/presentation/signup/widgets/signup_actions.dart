@@ -1,10 +1,7 @@
-import 'package:eduzap/application/signin/signin_bloc.dart';
-import 'package:eduzap/infrastructure/signin/signin_repositary.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/buttons.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupActionButtons extends StatelessWidget {
   const SignupActionButtons({

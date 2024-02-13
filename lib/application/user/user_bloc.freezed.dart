@@ -19,32 +19,44 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function() getAllStudents,
+    required TResult Function() updateSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function()? getAllStudents,
+    TResult? Function()? updateSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function()? getAllStudents,
+    TResult Function()? updateSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCurrentUser value) getCurrentUser,
+    required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_UpdateSubscription value) updateSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCurrentUser value)? getCurrentUser,
+    TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_UpdateSubscription value)? updateSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCurrentUser value)? getCurrentUser,
+    TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_UpdateSubscription value)? updateSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +118,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function() getAllStudents,
+    required TResult Function() updateSubscription,
   }) {
     return getCurrentUser();
   }
@@ -114,6 +128,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function()? getAllStudents,
+    TResult? Function()? updateSubscription,
   }) {
     return getCurrentUser?.call();
   }
@@ -122,6 +138,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function()? getAllStudents,
+    TResult Function()? updateSubscription,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -134,6 +152,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCurrentUser value) getCurrentUser,
+    required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_UpdateSubscription value) updateSubscription,
   }) {
     return getCurrentUser(this);
   }
@@ -142,6 +162,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetCurrentUser value)? getCurrentUser,
+    TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_UpdateSubscription value)? updateSubscription,
   }) {
     return getCurrentUser?.call(this);
   }
@@ -150,6 +172,8 @@ class _$GetCurrentUserImpl implements _GetCurrentUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCurrentUser value)? getCurrentUser,
+    TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_UpdateSubscription value)? updateSubscription,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -164,9 +188,226 @@ abstract class _GetCurrentUser implements UserEvent {
 }
 
 /// @nodoc
+abstract class _$$GetAllStudentsImplCopyWith<$Res> {
+  factory _$$GetAllStudentsImplCopyWith(_$GetAllStudentsImpl value,
+          $Res Function(_$GetAllStudentsImpl) then) =
+      __$$GetAllStudentsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetAllStudentsImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$GetAllStudentsImpl>
+    implements _$$GetAllStudentsImplCopyWith<$Res> {
+  __$$GetAllStudentsImplCopyWithImpl(
+      _$GetAllStudentsImpl _value, $Res Function(_$GetAllStudentsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetAllStudentsImpl implements _GetAllStudents {
+  const _$GetAllStudentsImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.getAllStudents()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetAllStudentsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCurrentUser,
+    required TResult Function() getAllStudents,
+    required TResult Function() updateSubscription,
+  }) {
+    return getAllStudents();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCurrentUser,
+    TResult? Function()? getAllStudents,
+    TResult? Function()? updateSubscription,
+  }) {
+    return getAllStudents?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCurrentUser,
+    TResult Function()? getAllStudents,
+    TResult Function()? updateSubscription,
+    required TResult orElse(),
+  }) {
+    if (getAllStudents != null) {
+      return getAllStudents();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCurrentUser value) getCurrentUser,
+    required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_UpdateSubscription value) updateSubscription,
+  }) {
+    return getAllStudents(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCurrentUser value)? getCurrentUser,
+    TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_UpdateSubscription value)? updateSubscription,
+  }) {
+    return getAllStudents?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCurrentUser value)? getCurrentUser,
+    TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_UpdateSubscription value)? updateSubscription,
+    required TResult orElse(),
+  }) {
+    if (getAllStudents != null) {
+      return getAllStudents(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllStudents implements UserEvent {
+  const factory _GetAllStudents() = _$GetAllStudentsImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateSubscriptionImplCopyWith<$Res> {
+  factory _$$UpdateSubscriptionImplCopyWith(_$UpdateSubscriptionImpl value,
+          $Res Function(_$UpdateSubscriptionImpl) then) =
+      __$$UpdateSubscriptionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateSubscriptionImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UpdateSubscriptionImpl>
+    implements _$$UpdateSubscriptionImplCopyWith<$Res> {
+  __$$UpdateSubscriptionImplCopyWithImpl(_$UpdateSubscriptionImpl _value,
+      $Res Function(_$UpdateSubscriptionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateSubscriptionImpl implements _UpdateSubscription {
+  const _$UpdateSubscriptionImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.updateSubscription()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateSubscriptionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCurrentUser,
+    required TResult Function() getAllStudents,
+    required TResult Function() updateSubscription,
+  }) {
+    return updateSubscription();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCurrentUser,
+    TResult? Function()? getAllStudents,
+    TResult? Function()? updateSubscription,
+  }) {
+    return updateSubscription?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCurrentUser,
+    TResult Function()? getAllStudents,
+    TResult Function()? updateSubscription,
+    required TResult orElse(),
+  }) {
+    if (updateSubscription != null) {
+      return updateSubscription();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCurrentUser value) getCurrentUser,
+    required TResult Function(_GetAllStudents value) getAllStudents,
+    required TResult Function(_UpdateSubscription value) updateSubscription,
+  }) {
+    return updateSubscription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCurrentUser value)? getCurrentUser,
+    TResult? Function(_GetAllStudents value)? getAllStudents,
+    TResult? Function(_UpdateSubscription value)? updateSubscription,
+  }) {
+    return updateSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCurrentUser value)? getCurrentUser,
+    TResult Function(_GetAllStudents value)? getAllStudents,
+    TResult Function(_UpdateSubscription value)? updateSubscription,
+    required TResult orElse(),
+  }) {
+    if (updateSubscription != null) {
+      return updateSubscription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSubscription implements UserEvent {
+  const factory _UpdateSubscription() = _$UpdateSubscriptionImpl;
+}
+
+/// @nodoc
 mixin _$UserState {
   bool get isLoading => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError;
+  List<UserModel> get studentsList => throw _privateConstructorUsedError;
   Option<Either<MainFailures, UserModel>> get userOpt =>
       throw _privateConstructorUsedError;
 
@@ -183,6 +424,7 @@ abstract class $UserStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       UserModel user,
+      List<UserModel> studentsList,
       Option<Either<MainFailures, UserModel>> userOpt});
 
   $UserModelCopyWith<$Res> get user;
@@ -203,6 +445,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   $Res call({
     Object? isLoading = null,
     Object? user = null,
+    Object? studentsList = null,
     Object? userOpt = null,
   }) {
     return _then(_value.copyWith(
@@ -214,6 +457,10 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      studentsList: null == studentsList
+          ? _value.studentsList
+          : studentsList // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
       userOpt: null == userOpt
           ? _value.userOpt
           : userOpt // ignore: cast_nullable_to_non_nullable
@@ -241,6 +488,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
   $Res call(
       {bool isLoading,
       UserModel user,
+      List<UserModel> studentsList,
       Option<Either<MainFailures, UserModel>> userOpt});
 
   @override
@@ -260,6 +508,7 @@ class __$$UserStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? user = null,
+    Object? studentsList = null,
     Object? userOpt = null,
   }) {
     return _then(_$UserStateImpl(
@@ -271,6 +520,10 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      studentsList: null == studentsList
+          ? _value._studentsList
+          : studentsList // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
       userOpt: null == userOpt
           ? _value.userOpt
           : userOpt // ignore: cast_nullable_to_non_nullable
@@ -283,18 +536,30 @@ class __$$UserStateImplCopyWithImpl<$Res>
 
 class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
-      {required this.isLoading, required this.user, required this.userOpt});
+      {required this.isLoading,
+      required this.user,
+      required final List<UserModel> studentsList,
+      required this.userOpt})
+      : _studentsList = studentsList;
 
   @override
   final bool isLoading;
   @override
   final UserModel user;
+  final List<UserModel> _studentsList;
+  @override
+  List<UserModel> get studentsList {
+    if (_studentsList is EqualUnmodifiableListView) return _studentsList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_studentsList);
+  }
+
   @override
   final Option<Either<MainFailures, UserModel>> userOpt;
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, user: $user, userOpt: $userOpt)';
+    return 'UserState(isLoading: $isLoading, user: $user, studentsList: $studentsList, userOpt: $userOpt)';
   }
 
   @override
@@ -305,11 +570,14 @@ class _$UserStateImpl implements _UserState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.user, user) || other.user == user) &&
+            const DeepCollectionEquality()
+                .equals(other._studentsList, _studentsList) &&
             (identical(other.userOpt, userOpt) || other.userOpt == userOpt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, user, userOpt);
+  int get hashCode => Object.hash(runtimeType, isLoading, user,
+      const DeepCollectionEquality().hash(_studentsList), userOpt);
 
   @JsonKey(ignore: true)
   @override
@@ -322,6 +590,7 @@ abstract class _UserState implements UserState {
   const factory _UserState(
           {required final bool isLoading,
           required final UserModel user,
+          required final List<UserModel> studentsList,
           required final Option<Either<MainFailures, UserModel>> userOpt}) =
       _$UserStateImpl;
 
@@ -329,6 +598,8 @@ abstract class _UserState implements UserState {
   bool get isLoading;
   @override
   UserModel get user;
+  @override
+  List<UserModel> get studentsList;
   @override
   Option<Either<MainFailures, UserModel>> get userOpt;
   @override

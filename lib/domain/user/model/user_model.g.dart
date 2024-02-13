@@ -13,6 +13,13 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       password: json['password'] as String,
       profile: json['profile'] as String,
       admin: json['admin'] as bool,
+      subscriber: json['subscriber'] as bool,
+      currentSubDate: json['currentSubDate'] == null
+          ? null
+          : DateTime.parse(json['currentSubDate'] as String),
+      nextSubDate: json['nextSubDate'] == null
+          ? null
+          : DateTime.parse(json['nextSubDate'] as String),
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
@@ -22,4 +29,7 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'password': instance.password,
       'profile': instance.profile,
       'admin': instance.admin,
+      'subscriber': instance.subscriber,
+      'currentSubDate': instance.currentSubDate?.toIso8601String(),
+      'nextSubDate': instance.nextSubDate?.toIso8601String(),
     };

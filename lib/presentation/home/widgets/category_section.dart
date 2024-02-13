@@ -4,12 +4,21 @@ import 'package:eduzap/presentation/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
 class CategorySection extends StatelessWidget {
-  const CategorySection({
+  CategorySection({
     super.key,
   });
 
+  final List<CategoryCard> categories = [
+    const CategoryCard(text: "Coding", imageName: 'coding.jpg'),
+    const CategoryCard(text: "Designing", imageName: 'graphic.jpg'),
+    const CategoryCard(text: "Photography", imageName: 'photography.jpg'),
+    const CategoryCard(text: "Art", imageName: 'art.jpg'),
+    const CategoryCard(text: "Marketing", imageName: 'marketing.jpg'),
+  ];
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         const SectionLabel(
@@ -17,31 +26,23 @@ class CategorySection extends StatelessWidget {
           buttonName: 'see more',
         ),
         const SizedBox(height: 30),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            CategoryCard(
-              text: 'Coding',
-              imageName: 'coding.jpg',
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>
-                      const CoursesByCategory(category: 'Coding'),
-                ),
-              ),
-            ),
-            CategoryCard(
-              text: 'Designing',
-              imageName: 'graphic.jpg',
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>
-                      const CoursesByCategory(category: 'Designing'),
-                ),
-              ),
-            ),
-          ],
-        )
+        LayoutBuilder(builder: (context, constraints) {
+          return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children:
+                  List.generate(constraints.maxWidth >= 590 ? 3 : 2, (index) {
+                return CategoryCard(
+                  text: 'Coding',
+                  imageName: 'coding.jpg',
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const CoursesByCategory(category: 'Coding'),
+                    ),
+                  ),
+                );
+              }));
+        })
       ],
     );
   }

@@ -22,39 +22,47 @@ class SavedScreen extends StatelessWidget {
             );
           } else {
             return SafeArea(
-              child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 50),
-                children: [
-                  const Center(
-                    child: CustomText(
-                      text: "My save list",
-                      fontSize: 22,
-                      color: grey900,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  Column(
-                    children: List.generate(
-                      state.savedCourseList.length,
-                      (index) {
-                        final course = state.savedCourseList[index];
-                        return HorizCourseCard(
-                          course: CourseModel.fromJson(course.course),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => CourseScreen(
-                                id: course.courseId,
-                                videoUrl: course.course['videoUrl'],
-                              ),
-                            ),
+              child: state.savedCourseList.isEmpty
+                  ? const Center(
+                      child: CustomText(
+                        text: "Saved List is Empty",
+                        fontSize: 17,
+                        color: grey900,
+                      ),
+                    )
+                  : ListView(
+                      padding: const EdgeInsets.symmetric(vertical: 50),
+                      children: [
+                        const Center(
+                          child: CustomText(
+                            text: "My save list",
+                            fontSize: 22,
+                            color: grey900,
+                            fontWeight: FontWeight.bold,
                           ),
-                        );
-                      },
+                        ),
+                        const SizedBox(height: 30),
+                        Column(
+                          children: List.generate(
+                            state.savedCourseList.length,
+                            (index) {
+                              final course = state.savedCourseList[index];
+                              return HorizCourseCard(
+                                course: CourseModel.fromJson(course.course),
+                                onTap: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => CourseScreen(
+                                      id: course.courseId,
+                                      videoUrl: course.course['videoUrl'],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
             );
           }
         },

@@ -1,6 +1,5 @@
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/signup/widgets/sign_up_options.dart';
-import 'package:eduzap/presentation/signup/widgets/signup_actions.dart';
 import 'package:eduzap/presentation/signup/widgets/signup_inputs.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';

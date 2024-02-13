@@ -1,7 +1,9 @@
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/presentation/admin_home/widgets/subsciber.dart';
 import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LatestSubscriptions extends StatelessWidget {
   const LatestSubscriptions({
@@ -22,13 +24,22 @@ class LatestSubscriptions extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Column(
-          children: List.generate(
-            5,
-            (index) {
-              return const Subscriber();
-            },
-          ),
+        BlocBuilder<UserBloc, UserState>(
+          builder: (context, state) {
+            return Column(
+              children: List.generate(
+                state.studentsList.length,
+                (index) {
+                  final student = state.studentsList[index];
+                  return Subscriber(
+                    image: student.profile,
+                    name: student.username,
+                    email: student.email,
+                  );
+                },
+              ),
+            );
+          },
         ),
       ],
     );

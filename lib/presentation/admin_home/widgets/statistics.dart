@@ -1,9 +1,13 @@
 import 'package:eduzap/application/course/course_bloc.dart';
+import 'package:eduzap/application/earnings/earnings_bloc.dart';
+import 'package:eduzap/application/user/user_bloc.dart';
 import 'package:eduzap/presentation/admin_course/screens/admin_courses_screen.dart';
 import 'package:eduzap/presentation/core/colors.dart';
+import 'package:eduzap/presentation/earnings/earnings_screen.dart';
 import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class Statistics extends StatelessWidget {
   const Statistics({
@@ -16,11 +20,32 @@ class Statistics extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Card(figure: '100', text: "Students"),
-            Card(figure: "1.5K", text: "Earnings"),
+            BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                return Card(
+                  figure: '${state.studentsList.length}',
+                  text: "Students",
+                );
+              },
+            ),
+            GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const EarningsScreen(),
+                ),
+              ),
+              child: BlocBuilder<EarningsBloc, EarningsState>(
+                builder: (context, state) {
+                  return Card(
+                    figure: convertAmount(state.totalEarnings),
+                    text: "Earnings",
+                  );
+                },
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 10),
@@ -44,28 +69,15 @@ class Statistics extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-          child: Container(
-            decoration: BoxDecoration(
-              color: primaryBlue,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            width: double.infinity,
-            height: 60,
-            child: const Center(
-              child: CustomText(
-                text: "Teachers",
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        )
       ],
     );
   }
+}
+
+String convertAmount(amount) {
+  return NumberFormat.compactSimpleCurrency(
+    locale: 'en_IN',
+  ).format(amount);
 }
 
 class Card extends StatelessWidget {

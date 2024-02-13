@@ -3,8 +3,10 @@ import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flutter/material.dart';
 
 class TutorName extends StatelessWidget {
+  final String tutorName;
   const TutorName({
     super.key,
+    required this.tutorName,
   });
 
   @override
@@ -12,18 +14,11 @@ class TutorName extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Image.asset(
-              'assets/images/avatar.jpg',
-              fit: BoxFit.cover,
-              width: 50,
-            ),
-          ),
-          const SizedBox(width: 10),
-          const CustomText(
-            text: 'Rafael',
+          CustomText(
+            text: tutorName,
             fontSize: 15,
             color: grey500,
             fontWeight: FontWeight.bold,

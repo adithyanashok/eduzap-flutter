@@ -118,6 +118,7 @@ class _SignUpInputsState extends State<SignUpInputs> {
                               email: emailController.text,
                               password: passwordController.text,
                               profile: pickedImage!.path,
+                              subscriber: false,
                             ),
                             confirmPassword: confirmPasswordController.text,
                           ),

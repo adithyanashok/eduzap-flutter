@@ -5,6 +5,7 @@ class UserState with _$UserState {
   const factory UserState({
     required bool isLoading,
     required UserModel user,
+    required List<UserModel> studentsList,
     required Option<Either<MainFailures, UserModel>> userOpt,
   }) = _UserState;
 
@@ -17,8 +18,10 @@ class UserState with _$UserState {
         password: "",
         profile: '',
         admin: false,
+        subscriber: false,
       ),
       userOpt: None(),
+      studentsList: [],
     );
   }
 }

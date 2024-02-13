@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eduzap/domain/course/model/course_model.dart';
-import 'package:eduzap/domain/saved/model/saved_course_model.dart';
 import 'package:eduzap/presentation/search/widgets/course_details.dart';
 import 'package:flutter/material.dart';
 

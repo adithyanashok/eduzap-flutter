@@ -161,11 +161,18 @@ class UploadCourseState extends State<UploadCourse> {
                     hintText: "Tutor name",
                     controller: courseTutorNameController,
                   ),
-                  const Text(
-                    'Add Lessons',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                  ),
-                  ..._getLessons(),
+                  !widget.edit
+                      ? Column(
+                          children: [
+                            const Text(
+                              'Add Lessons',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 16),
+                            ),
+                            ..._getLessons(),
+                          ],
+                        )
+                      : const SizedBox(),
                   const SizedBox(
                     height: 40,
                   ),

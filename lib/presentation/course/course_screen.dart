@@ -1,11 +1,15 @@
+import 'dart:developer';
+
 import 'package:eduzap/application/course/course_bloc.dart';
 import 'package:eduzap/application/my_learnings/mylearnings_bloc.dart';
 import 'package:eduzap/application/rating/rating_bloc.dart';
-import 'package:eduzap/application/saved/saved_bloc.dart';
 import 'package:eduzap/application/user/user_bloc.dart';
+import 'package:eduzap/presentation/core/colors.dart';
 import 'package:eduzap/presentation/course/widgets/app_bar.dart';
 import 'package:eduzap/presentation/course/widgets/course_details.dart';
 import 'package:eduzap/presentation/course/widgets/tab_widget.dart';
+import 'package:eduzap/presentation/subscription/subscription_screen.dart';
+import 'package:eduzap/presentation/widgets/texts.dart';
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +53,8 @@ class _CourseScreenState extends State<CourseScreen> {
     context.read<CourseBloc>().add(CourseEvent.getCourse(widget.id));
     context.read<RatingBloc>().add(const RatingEvent.clear());
     context.read<RatingBloc>().add(RatingEvent.getRatingByCourse(widget.id));
-    context.read<UserBloc>().add(const UserEvent.getCurrentUser());
+    final user = context.read<UserBloc>().state.user;
+    log(user.toString());
     return DefaultTabController(
       length: 2,
       child: BlocBuilder<CourseBloc, CourseState>(
@@ -70,7 +75,9 @@ class _CourseScreenState extends State<CourseScreen> {
                 : ListView(
                     children: [
                       SizedBox(
-                        child: FlickVideoPlayer(flickManager: flickManager),
+                        child: user.subscriber || user.admin == true
+                            ? FlickVideoPlayer(flickManager: flickManager)
+                            : const SubscribeBox(),
                       ),
                       CourseDetails(
                         courseDescription: state.course.courseDescription,
@@ -84,6 +91,53 @@ class _CourseScreenState extends State<CourseScreen> {
                   ),
           );
         },
+      ),
+    );
+  }
+}
+
+class SubscribeBox extends StatelessWidget {
+  const SubscribeBox({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 200,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const CustomText(
+            text: "You need to subscribe to watch tutorials",
+            fontSize: 16,
+            color: Colors.grey,
+          ),
+          Center(
+            child: ElevatedButton(
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                  primaryBlue,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SubscriptionScreen(),
+                  ),
+                );
+              },
+              child: const CustomText(
+                text: 'Subscribe',
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

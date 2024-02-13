@@ -25,6 +25,9 @@ mixin _$UserModel {
   String get password => throw _privateConstructorUsedError;
   String get profile => throw _privateConstructorUsedError;
   bool get admin => throw _privateConstructorUsedError;
+  bool get subscriber => throw _privateConstructorUsedError;
+  DateTime? get currentSubDate => throw _privateConstructorUsedError;
+  DateTime? get nextSubDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +45,10 @@ abstract class $UserModelCopyWith<$Res> {
       String email,
       String password,
       String profile,
-      bool admin});
+      bool admin,
+      bool subscriber,
+      DateTime? currentSubDate,
+      DateTime? nextSubDate});
 }
 
 /// @nodoc
@@ -63,6 +69,9 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? password = null,
     Object? profile = null,
     Object? admin = null,
+    Object? subscriber = null,
+    Object? currentSubDate = freezed,
+    Object? nextSubDate = freezed,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -85,6 +94,18 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
               as bool,
+      subscriber: null == subscriber
+          ? _value.subscriber
+          : subscriber // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentSubDate: freezed == currentSubDate
+          ? _value.currentSubDate
+          : currentSubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      nextSubDate: freezed == nextSubDate
+          ? _value.nextSubDate
+          : nextSubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -102,7 +123,10 @@ abstract class _$$UserModelImplCopyWith<$Res>
       String email,
       String password,
       String profile,
-      bool admin});
+      bool admin,
+      bool subscriber,
+      DateTime? currentSubDate,
+      DateTime? nextSubDate});
 }
 
 /// @nodoc
@@ -121,6 +145,9 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? password = null,
     Object? profile = null,
     Object? admin = null,
+    Object? subscriber = null,
+    Object? currentSubDate = freezed,
+    Object? nextSubDate = freezed,
   }) {
     return _then(_$UserModelImpl(
       username: null == username
@@ -143,6 +170,18 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
               as bool,
+      subscriber: null == subscriber
+          ? _value.subscriber
+          : subscriber // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentSubDate: freezed == currentSubDate
+          ? _value.currentSubDate
+          : currentSubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      nextSubDate: freezed == nextSubDate
+          ? _value.nextSubDate
+          : nextSubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -155,7 +194,10 @@ class _$UserModelImpl implements _UserModel {
       required this.email,
       required this.password,
       required this.profile,
-      required this.admin});
+      required this.admin,
+      required this.subscriber,
+      this.currentSubDate,
+      this.nextSubDate});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -170,10 +212,16 @@ class _$UserModelImpl implements _UserModel {
   final String profile;
   @override
   final bool admin;
+  @override
+  final bool subscriber;
+  @override
+  final DateTime? currentSubDate;
+  @override
+  final DateTime? nextSubDate;
 
   @override
   String toString() {
-    return 'UserModel(username: $username, email: $email, password: $password, profile: $profile, admin: $admin)';
+    return 'UserModel(username: $username, email: $email, password: $password, profile: $profile, admin: $admin, subscriber: $subscriber, currentSubDate: $currentSubDate, nextSubDate: $nextSubDate)';
   }
 
   @override
@@ -187,13 +235,19 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.profile, profile) || other.profile == profile) &&
-            (identical(other.admin, admin) || other.admin == admin));
+            (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.subscriber, subscriber) ||
+                other.subscriber == subscriber) &&
+            (identical(other.currentSubDate, currentSubDate) ||
+                other.currentSubDate == currentSubDate) &&
+            (identical(other.nextSubDate, nextSubDate) ||
+                other.nextSubDate == nextSubDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, username, email, password, profile, admin);
+  int get hashCode => Object.hash(runtimeType, username, email, password,
+      profile, admin, subscriber, currentSubDate, nextSubDate);
 
   @JsonKey(ignore: true)
   @override
@@ -215,7 +269,10 @@ abstract class _UserModel implements UserModel {
       required final String email,
       required final String password,
       required final String profile,
-      required final bool admin}) = _$UserModelImpl;
+      required final bool admin,
+      required final bool subscriber,
+      final DateTime? currentSubDate,
+      final DateTime? nextSubDate}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -230,6 +287,12 @@ abstract class _UserModel implements UserModel {
   String get profile;
   @override
   bool get admin;
+  @override
+  bool get subscriber;
+  @override
+  DateTime? get currentSubDate;
+  @override
+  DateTime? get nextSubDate;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
